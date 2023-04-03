@@ -1,0 +1,23 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+
+	background: #790909;
+
+	color: #eee;
+
+	font-family: Arial, Helvetica, sans-serif;
+	height: 100dvh;
+}
+
+h1 {
+	font-size: 4rem;
+}
