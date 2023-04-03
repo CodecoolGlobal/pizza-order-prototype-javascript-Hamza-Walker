@@ -5,8 +5,6 @@ import rootRoute from "./routes/root.route.js"
 
 const server = express()
 
-console.log(config)
-
 server.use(express.static("public"))
 server.use("/", rootRoute)
 
