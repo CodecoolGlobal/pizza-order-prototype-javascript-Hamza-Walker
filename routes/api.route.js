@@ -1,7 +1,8 @@
 import { Router } from "express"
+import pizzaRoute from "./pizza.route.js"
 
 const route = Router()
 
-route.get("/", (req, res) => res.redirect("/index.html"))
+route.use("/pizza", pizzaRoute)
 
 export default route

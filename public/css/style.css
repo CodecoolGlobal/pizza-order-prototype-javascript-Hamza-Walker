@@ -1,23 +1,51 @@
-* {
-	box-sizing: border-box;
-	margin: 0;
-}
-
-body {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 1rem;
-
-	background: #790909;
-
-	color: #eee;
-
-	font-family: Arial, Helvetica, sans-serif;
-	height: 100dvh;
-}
+@import url(./reset.css);
+@import url(./globals.css);
+@import url(./header.css);
 
 h1 {
-	font-size: 4rem;
+	color: var(--red);
+	font-size: 4em;
+	font-weight: bold;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	padding: 1em;
+	gap: 1em;
+}
+
+.welcome > h1 {
+	font-size: 4em;
+}
+
+.welcome {
+	position: relative;
+	height: 30vmin;
+
+	overflow: hidden;
+}
+.welcome-text {
+	gap: 1em;
+	background: #111;
+}
+
+.welcome > img {
+	position: absolute;
+	width: 100%;
+	object-fit: cover;
+
+	z-index: -1;
+}
+
+.quick-menu {
+	height: 60vmin;
+	width: 100%;
+	grid-template-columns: 1fr;
+
+	gap: 1em;
+}
+
+.quick-menu > button {
+	padding: 3em;
 }
