@@ -1,51 +1,20 @@
 @import url(./reset.css);
 @import url(./globals.css);
-@import url(./header.css);
+
+body {
+	overflow: hidden;
+	color: var(--primary);
+	text-shadow: 1px 0 2px black, -1px 0 2px black, 0 1px 2px black, 0 -1px 2px black;
+}
+
+img {
+	position: absolute;
+	z-index: -1;
+	width: 100dvw;
+	height: 100dvh;
+	object-fit: cover;
+}
 
 h1 {
-	color: var(--red);
-	font-size: 4em;
-	font-weight: bold;
-}
-
-main {
-	display: flex;
-	flex-direction: column;
-	padding: 1em;
-	gap: 1em;
-}
-
-.welcome > h1 {
-	font-size: 4em;
-}
-
-.welcome {
-	position: relative;
-	height: 30vmin;
-
-	overflow: hidden;
-}
-.welcome-text {
-	gap: 1em;
-	background: #111;
-}
-
-.welcome > img {
-	position: absolute;
-	width: 100%;
-	object-fit: cover;
-
-	z-index: -1;
-}
-
-.quick-menu {
-	height: 60vmin;
-	width: 100%;
-	grid-template-columns: 1fr;
-
-	gap: 1em;
-}
-
-.quick-menu > button {
-	padding: 3em;
+	font-size: 4rem;
 }

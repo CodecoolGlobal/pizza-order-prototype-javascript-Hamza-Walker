@@ -1,42 +1,58 @@
 [
-    {
-    "id": 1,
-    "name": "gluten"
-    },
-    {
-    "id": 2,
-    "name": "dairy"
-    },
-    {
-    "id": 3,
-    "name": "pork"
-    },
-    {
-    "id": 4,
-    "name": "beef"
-    },
-    {
-    "id": 5,
-    "name": "onion"
-    },
-    {
-    "id": 6,
-    "name": "garlic"
-    },
-    {
-    "id": 7,
-    "name": "mushroom"
-    },
-    {
-    "id": 8,
-    "name": "pepper"
-    },
-    {
-    "id": 9,
-    "name": "pineapple"
-    },
-    {
-    "id": 10,
-    "name": "tomato"
-    }
-    ]
+	{
+		"id": "A",
+		"name": "Gluten"
+	},
+	{
+		"id": "B",
+		"name": "Crustaceans"
+	},
+	{
+		"id": "C",
+		"name": "Egg"
+	},
+	{
+		"id": "D",
+		"name": "Fish"
+	},
+	{
+		"id": "E",
+		"name": "Peanuts"
+	},
+	{
+		"id": "F",
+		"name": "Soybeans"
+	},
+	{
+		"id": "G",
+		"name": "Milk"
+	},
+	{
+		"id": "H",
+		"name": "Tree nuts"
+	},
+	{
+		"id": "L",
+		"name": "Celery"
+	},
+	{
+		"id": "M",
+		"name": "Mustard"
+	},
+	{
+		"id": "N",
+		"name": "Sesame"
+	},
+	{
+		"id": "O",
+		"name": "Sulphur Dioxide and Sulphites"
+	},
+	{
+		"id": "P",
+		"name": "Lupin"
+	},
+	{
+		"id": "R",
+		"name": "Molluscs"
+	}
+]

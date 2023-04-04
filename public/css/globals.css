@@ -2,8 +2,8 @@
 	--background: #111;
 	--red: #a5331d;
 	--primary: #eff0ea;
-	--secondary: #597525;
-	--tertiary: #ecd393;
+	--green: #597525;
+	--contrast: #ecd393;
 }
 
 body {
@@ -42,4 +42,13 @@ button:active {
 .flex-center {
 	justify-content: center;
 	align-items: center;
+}
+.gap1 {
+	gap: 1rem;
+}
+.gap2 {
+	gap: 2rem;
+}
+.gap4 {
+	gap: 4rem;
 }

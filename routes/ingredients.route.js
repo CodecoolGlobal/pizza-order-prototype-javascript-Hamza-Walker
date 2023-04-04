@@ -1,9 +1,19 @@
-import { Router } from "express"
+import dataBaseRouter from "../app/middleware/dataRouting.js"
 
-const route = Router()
-
-route.get("/", (req, res) => {
-	res.json({ message: "not implemented yet" })
+export default dataBaseRouter("ingredients", {
+	validation: {
+		post: postValidator,
+		put: putValidator,
+		delete: deleteValidator
+	}
 })
 
-export default route
+function postValidator(req, res, next) {
+	next()
+}
+function putValidator(req, res, next) {
+	next()
+}
+function deleteValidator(req, res, next) {
+	next()
+}

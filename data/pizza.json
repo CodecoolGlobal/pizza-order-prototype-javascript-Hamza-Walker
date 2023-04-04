@@ -1,141 +1,161 @@
 [
-    {
-      "id": 1,
-      "name": "Margherita",
-      "ingredients": [
-        "San Marzano tomato sauce",
-        "mozzarella cheese",
-        "fresh basil",
-        "olive oil"
-      ],
-      "price": 1200,
-      "allergens": [2, 5]
-    },
-    {
-      "id": 2,
-      "name": "Pepperoni",
-      "ingredients": [
-        "San Marzano tomato sauce",
-        "mozzarella cheese",
-        "pepperoni",
-        "olive oil"
-      ],
-      "price": 1400,
-      "allergens": [1, 3, 5]
-    },
-    {
-      "id": 3,
-      "name": "Hawaiian",
-      "ingredients": [
-        "San Marzano tomato sauce",
-        "mozzarella cheese",
-        "ham",
-        "pineapple",
-        "olive oil"
-      ],
-      "price": 1500,
-      "allergens": [1, 3, 5, 9]
-    },
-    {
-      "id": 4,
-      "name": "Meat Lover's",
-      "ingredients": [
-        "San Marzano tomato sauce",
-        "mozzarella cheese",
-        "pepperoni",
-        "sausage",
-        "bacon",
-        "ground beef",
-        "olive oil"
-      ],
-      "price": 1800,
-      "allergens": [1, 3, 5]
-    },
-    {
-      "id": 5,
-      "name": "Vegetarian",
-      "ingredients": [
-        "San Marzano tomato sauce",
-        "mozzarella cheese",
-        "mushrooms",
-        "green peppers",
-        "onions",
-        "black olives",
-        "olive oil"
-      ],
-      "price": 1600,
-      "allergens": [2, 3, 5]
-    },
-    {
-      "id": 6,
-      "name": "Supreme",
-      "ingredients": [
-        "San Marzano tomato sauce",
-        "mozzarella cheese",
-        "pepperoni",
-        "sausage",
-        "mushrooms",
-        "green peppers",
-        "onions",
-        "black olives",
-        "olive oil"
-      ],
-      "price": 2000,
-      "allergens": [1, 3, 5, 9]
-    },
-    {
-      "id": 7,
-      "name": "BBQ Chicken",
-      "ingredients": [
-        "BBQ sauce",
-        "mozzarella cheese",
-        "grilled chicken",
-        "red onions",
-        "cilantro",
-        "olive oil"
-      ],
-      "price": 1700,
-      "allergens": [3, 5, 9]
-    },
-    {
-      "id": 8,
-      "name": "Buffalo Chicken",
-      "ingredients": [
-        "Buffalo sauce",
-        "mozzarella cheese",
-        "grilled chicken",
-        "red onions",
-        "ranch dressing",
-        "olive oil"
-      ],
-      "price": 1700,
-      "allergens": [3, 5, 9]
-    },
-    {
-      "id": 9,
-      "name": "White Pizza",
-      "ingredients": [
-        "garlic butter sauce",
-        "mozzarella cheese",
-        "ricotta cheese",
-        "parmesan cheese",
-        "olive oil"
-      ],
-      "price": 13000,
-      "allergens": [2, 5]
-      },
-      {
-      "id": 10,
-      "name": "Four Cheese",
-      "ingredients": [
-      "San Marzano tomato sauce",
-      "mozzarella cheese",
-      "ricotta cheese",
-      "parmesan cheese",
-      "gorgonzola cheese",
-      "olive oil"
-      ],
-      "price": 1700,
-      "allergens": [2, 5]
-      }
- ]
+  {
+    "id": "a272ba15-bbc4-4aff-8143-488986bf0cbb",
+    "name": "Margherita",
+    "order": 0,
+    "image": "margherita.png",
+    "ingredients": [
+      "6494989b-5ddb-4f68-b907-0ae948f1f7d8",
+      "2ea20ddb-1e97-47a7-bf81-959f3fb20536",
+      "b4934859-bdde-449b-a5f9-fec4243bdb9c",
+      "208172ef-1ca6-4909-8aae-4220d34537ac",
+      "62bbc0dd-9df5-4bef-bf75-fef529317f4d"
+    ],
+    "price": 11.95
+  },
+  {
+    "id": "1393aede-8445-46d5-8a47-9ad031daa3f0",
+    "name": "Pepperoni",
+    "order": 1,
+    "image": "pepperoni.png",
+    "ingredients": [
+      "6494989b-5ddb-4f68-b907-0ae948f1f7d8",
+      "2ea20ddb-1e97-47a7-bf81-959f3fb20536",
+      "b4934859-bdde-449b-a5f9-fec4243bdb9c",
+      "772e47b9-31cc-45d3-9ceb-17d2b5b41529",
+      "62bbc0dd-9df5-4bef-bf75-fef529317f4d"
+    ],
+    "price": 13.95
+  },
+  {
+    "id": "ef754567-5f1a-421b-8dd8-4da7a1444d81",
+    "name": "Hawaiian",
+    "order": 2,
+    "image": "hawaiian.png",
+    "ingredients": [
+      "6494989b-5ddb-4f68-b907-0ae948f1f7d8",
+      "2ea20ddb-1e97-47a7-bf81-959f3fb20536",
+      "b4934859-bdde-449b-a5f9-fec4243bdb9c",
+      "71a81ff0-2c89-4e76-80de-9416b08695fc",
+      "ff7210b7-9faa-4835-9994-e4280f235bfa",
+      "62bbc0dd-9df5-4bef-bf75-fef529317f4d"
+    ],
+    "price": 14.95
+  },
+  {
+    "id": "273b392b-a6b5-4a81-bbce-381c2814ff50",
+    "name": "Meat Lover's",
+    "order": 3,
+    "image": "meat_lover's.png",
+    "ingredients": [
+      "6494989b-5ddb-4f68-b907-0ae948f1f7d8",
+      "2ea20ddb-1e97-47a7-bf81-959f3fb20536",
+      "b4934859-bdde-449b-a5f9-fec4243bdb9c",
+      "772e47b9-31cc-45d3-9ceb-17d2b5b41529",
+      "c357e3f0-3ad8-4b35-9aad-6c242e40c03e",
+      "affa0154-ffb5-47c0-b6a2-31d2985d75ec",
+      "25341306-f32b-44bc-a020-add81978e9b7",
+      "62bbc0dd-9df5-4bef-bf75-fef529317f4d"
+    ],
+    "price": 17.95
+  },
+  {
+    "id": "1922578f-ed08-4bdd-9515-7927d70b580a",
+    "name": "Vegetarian",
+    "order": 4,
+    "image": "vegetarian.png",
+    "ingredients": [
+      "6494989b-5ddb-4f68-b907-0ae948f1f7d8",
+      "2ea20ddb-1e97-47a7-bf81-959f3fb20536",
+      "b4934859-bdde-449b-a5f9-fec4243bdb9c",
+      "b1513ef0-6d09-4464-a7a8-e9990afe90b1",
+      "4c81a567-e7af-471d-bc28-85f4ef63f99d",
+      "8e37e4d5-773f-4703-8d25-95a4b5c97faf",
+      "02ee3d7c-6ee3-4fb8-9cbb-15feb7164191",
+      "62bbc0dd-9df5-4bef-bf75-fef529317f4d"
+    ],
+    "price": 15.95
+  },
+  {
+    "id": "4bca2e7e-e578-4401-beee-88905a02c2d7",
+    "name": "Supreme",
+    "order": 5,
+    "image": "supreme.png",
+    "ingredients": [
+      "6494989b-5ddb-4f68-b907-0ae948f1f7d8",
+      "2ea20ddb-1e97-47a7-bf81-959f3fb20536",
+      "b4934859-bdde-449b-a5f9-fec4243bdb9c",
+      "772e47b9-31cc-45d3-9ceb-17d2b5b41529",
+      "c357e3f0-3ad8-4b35-9aad-6c242e40c03e",
+      "b1513ef0-6d09-4464-a7a8-e9990afe90b1",
+      "4c81a567-e7af-471d-bc28-85f4ef63f99d",
+      "8e37e4d5-773f-4703-8d25-95a4b5c97faf",
+      "02ee3d7c-6ee3-4fb8-9cbb-15feb7164191",
+      "62bbc0dd-9df5-4bef-bf75-fef529317f4d"
+    ],
+    "price": 19.95
+  },
+  {
+    "id": "dff4fcad-9914-4684-b17a-7e3e9c662ffe",
+    "name": "BBQ Chicken",
+    "order": 6,
+    "image": "bbq_chicken.png",
+    "ingredients": [
+      "6494989b-5ddb-4f68-b907-0ae948f1f7d8",
+      "d3fdf0ca-5a2f-4573-a438-100877187e30",
+      "b4934859-bdde-449b-a5f9-fec4243bdb9c",
+      "c9e96096-119f-4680-8c60-7fcb54d971da",
+      "f3d1bb95-cf59-4ab8-8750-a16e0cb53e06",
+      "8baa6914-38ec-4f07-b30e-e2172507b865",
+      "62bbc0dd-9df5-4bef-bf75-fef529317f4d"
+    ],
+    "price": 16.95
+  },
+  {
+    "id": "27a715fe-3c7e-4753-8c18-e7018e8ec017",
+    "name": "Buffalo Chicken",
+    "order": 7,
+    "image": "buffalo_chicken.png",
+    "ingredients": [
+      "6494989b-5ddb-4f68-b907-0ae948f1f7d8",
+      "741efebd-50da-4b99-b26e-0efe96d6b683",
+      "b4934859-bdde-449b-a5f9-fec4243bdb9c",
+      "c9e96096-119f-4680-8c60-7fcb54d971da",
+      "f3d1bb95-cf59-4ab8-8750-a16e0cb53e06",
+      "e7d27c52-2edc-4bea-917a-4cc3afabb633",
+      "62bbc0dd-9df5-4bef-bf75-fef529317f4d"
+    ],
+    "price": 16.95
+  },
+  {
+    "id": "fc7e0e1e-59c3-42ad-8996-10bd5bb0444c",
+    "name": "White Pizza",
+    "order": 8,
+    "image": "white_pizza.png",
+    "ingredients": [
+      "6494989b-5ddb-4f68-b907-0ae948f1f7d8",
+      "0c78b739-c982-43ef-9932-6205d18cc3d3",
+      "b4934859-bdde-449b-a5f9-fec4243bdb9c",
+      "68532418-eb06-4d32-a519-c2f1eab415d2",
+      "2719b0f5-cfec-40b0-8051-41a28beb35d0",
+      "62bbc0dd-9df5-4bef-bf75-fef529317f4d"
+    ],
+    "price": 12.95
+  },
+  {
+    "id": "cd6da8a2-7d67-47c6-8a17-73905d2b73de",
+    "name": "Four Cheese",
+    "order": 9,
+    "image": "four_cheese.png",
+    "ingredients": [
+      "6494989b-5ddb-4f68-b907-0ae948f1f7d8",
+      "2ea20ddb-1e97-47a7-bf81-959f3fb20536",
+      "b4934859-bdde-449b-a5f9-fec4243bdb9c",
+      "68532418-eb06-4d32-a519-c2f1eab415d2",
+      "2719b0f5-cfec-40b0-8051-41a28beb35d0",
+      "c06a23e4-cae8-43b0-9076-3d8fa4334a46",
+      "62bbc0dd-9df5-4bef-bf75-fef529317f4d"
+    ],
+    "price": 16.95
+  }
+]
