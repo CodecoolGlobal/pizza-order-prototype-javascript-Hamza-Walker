@@ -1,6 +1,5 @@
 import { Router } from "express"
 import apiRoute from "./api.route.js"
-
 const router = Router()
 
 router.use("/api", apiRoute)
