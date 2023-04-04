@@ -1,0 +1,42 @@
+[
+    {
+    "id": 1,
+    "name": "gluten"
+    },
+    {
+    "id": 2,
+    "name": "dairy"
+    },
+    {
+    "id": 3,
+    "name": "pork"
+    },
+    {
+    "id": 4,
+    "name": "beef"
+    },
+    {
+    "id": 5,
+    "name": "onion"
+    },
+    {
+    "id": 6,
+    "name": "garlic"
+    },
+    {
+    "id": 7,
+    "name": "mushroom"
+    },
+    {
+    "id": 8,
+    "name": "pepper"
+    },
+    {
+    "id": 9,
+    "name": "pineapple"
+    },
+    {
+    "id": 10,
+    "name": "tomato"
+    }
+    ]
