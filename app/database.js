@@ -16,7 +16,6 @@ export function all(table) {
 }
 export function get(table, id) {
 	const entry = all(table).find((item) => item.id === id)
-	if (!entry) throw { status: 404, message: "Not found", data: { id } }
 	return entry
 }
 export function create(table, item) {

@@ -1,7 +1,10 @@
 import { get } from "../app/database.js"
 import dataBaseRouter from "../app/middleware/dataRouting.js"
+import { keyExistsValidator, nameIsUniqueValidator, uuidValidator } from "../app/middleware/validators.js"
 
-export default dataBaseRouter("pizza", {
+const KEY = "pizza"
+
+export default dataBaseRouter(KEY, {
 	validation: {
 		post: postValidator,
 		put: putValidator,
@@ -11,12 +14,17 @@ export default dataBaseRouter("pizza", {
 })
 
 function postValidator(req, res, next) {
+	nameIsUniqueValidator(KEY, req.body.name)
 	next()
 }
 function putValidator(req, res, next) {
+	uuidValidator(req.params.id)
+	keyExistsValidator(KEY, req.params.id)
 	next()
 }
 function deleteValidator(req, res, next) {
+	uuidValidator(req.params.id)
+	keyExistsValidator(KEY, req.params.id)
 	next()
 }
 function dataTransformer(pizza) {

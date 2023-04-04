@@ -11,6 +11,15 @@ GET http://localhost:9000/api/pizza/a272ba15-bbc4-4aff-8143-488986bf0cbb
 
 ###
 POST http://localhost:9000/api/pizza
+Content-Type: application/json
+
+{
+  "name": "Test Pizza",
+  "order": 99,
+  "image": "fancy.gfx.png",
+  "ingredients": [],
+  "price": 99.99
+}
 
 ### 
 DELETE http://localhost:9000/api/allergens/asdf

@@ -43,7 +43,7 @@ export default function dataBaseRouter(
 	}
 	function createItem(req, res) {
 		const item = create(dataKey, req.body)
-		res.json(transformOnSend(item))
+		res.status(201).json(transformOnSend(item))
 	}
 	function updateItem(req, res) {
 		const item = update(dataKey, req.params.id, req.body)
