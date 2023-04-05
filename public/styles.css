@@ -1,0 +1,153 @@
+
+/* Styles for the firstDiv (menu)   */
+.pizza-menu {
+    background-color: #B4BCCF;
+    padding: -2px;
+    border-radius: 10px;
+    width: 250px;
+    height: 762px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+  .pizza-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 20px;
+    width: 220px;
+    height: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+.pizza-item:hover {
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+.pizza-item h3 {
+    font-size: 20px;
+    color: #000000;
+}
+
+.pizza-item p {
+    font-size: 18px;
+    color: #000000;
+}
+
+/* Styles for the pizza description div */
+.pizza-description {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 20px;
+    width: 250px;
+    height: 500px;
+    /* overflow-y: auto; */
+  }
+
+.description__pizza-desc {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+  }
+  
+  .description__pizza-desc h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .description__pizza-desc p {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .description__pizza-desc .description__price {
+    color: #cc0000;
+    font-weight: bold;
+  }
+  
+  /* Styles for the ingredients div */
+  .description__ingredients {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+  }
+  
+  .description__ingredients h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .description__ingredients ul {
+    list-style-type: none;
+    margin: 10px 0;
+    padding: 0;
+  }
+  
+  .description__ingredients li {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  /* Styles for the image div */
+  .description__img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .description__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* advertisement div  */
+  .advertisement-div {
+    width: 300px;
+    height: 200px;
+    background-color: #2f2f2f;
+    padding: 16px;
+    margin-top: 565px;
+    border-radius: 10px;
+  }
+  
+  .advertisement-title {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: white;
+  }
+  
+  .advertisement-paragraph {
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: white;
+
+  }
+  
+  button {
+    background-color: orange;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 16px;
+  }
+  
