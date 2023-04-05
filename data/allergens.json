@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "name": "dairy"
+    },
+    {
+      "id": 2,
+      "name": "eggs"
+    },
+    {
+      "id": 3,
+      "name": "gluten"
+    },
+    {
+      "id": 4,
+      "name": "soy"
+    },
+    {
+      "id": 5,
+      "name": "meat"
+    },
+    {
+      "id": 6,
+      "name": "poultry"
+    }
+  ]
+  
