@@ -100,6 +100,9 @@ rootDiv.appendChild(descriptionDiv)
 return descriptionDiv;
 };
 
+// TODO: figure out the best Position to append the advertisement div
+// and why is th edescritiopn div not appended to the second div 
+// find a way arrount the event litener 
 export const advertisementDiv = () => {
 // container div element
 const advertisementDiv = document.createElement('div');
