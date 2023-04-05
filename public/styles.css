@@ -48,9 +48,14 @@
     padding: 20px;
     width: 250px;
     height: 500px;
+    display: flex;
     /* overflow-y: auto; */
   }
+.description {
+  width: 250px;
+  height: 500px;
 
+}
 .description__pizza-desc {
     margin: 20px 0;
     padding: 10px;

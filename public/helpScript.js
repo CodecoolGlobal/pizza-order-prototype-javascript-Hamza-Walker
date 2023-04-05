@@ -1,4 +1,4 @@
-import { rootDiv } from "./script.js";
+import { secondDiv } from "./script.js";
 export let selectedElement = null;
 
 
@@ -92,8 +92,9 @@ ingredientsDiv.appendChild(ingredientsList);
 descriptionDiv.appendChild(imgDiv);
 descriptionDiv.appendChild(pizzaDescDiv);
 descriptionDiv.appendChild(ingredientsDiv);
+console.log(secondDiv)
 
-rootDiv.appendChild(descriptionDiv)
+secondDiv.appendChild(descriptionDiv)
 // const advetisementToAppend = advertisementDiv()
 // rootDiv.appendChild(advetisementToAppend)
 // createSecondDiv()
@@ -129,8 +130,8 @@ advertisementDiv.appendChild(buttonElement);
 const imageElement = document.createElement('img');
 imageElement.src = 'pizzaAdd.png'; // Replace with the actual image source
 advertisementDiv.appendChild(imageElement);
-
+console.log(secondDiv)
 // Append the advertisementDiv to the DOM
-rootDiv.appendChild(advertisementDiv);
-    // return advertisementDiv
+secondDiv.appendChild(advertisementDiv);
+    return advertisementDiv
 }
