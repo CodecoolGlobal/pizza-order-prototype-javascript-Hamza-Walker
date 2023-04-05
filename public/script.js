@@ -1,7 +1,8 @@
-import { createFirstDivElements , createSecondDivElements, advertisementDiv } from "./helpScript.js";
+import { createFirstDivElements , createSecondDivElements, advertisementDiv,createAllergensFilter } from "./helpScript.js";
 import { fetchPizzaObject, fetchallergensObject } from "./fetchJson.js";
 export const rootDiv = document.getElementById("root");
 export const secondDiv = document.createElement("div");
+export const thirdDiv = document.createElement("div");
 
 const createFirstDiv = ({ pizzaData }) => {
     const firstDiv = document.createElement("div");
@@ -17,12 +18,7 @@ const createFirstDiv = ({ pizzaData }) => {
 }
 export const createSecondDiv = ({ pizzaData }) => {
     
-
-    // const secondDiv = document.createElement("div");
-    secondDiv.classList.add("pizza-description")
-    // secondDiv.textContent = "put the pizza description and advertisment script on me"
-    
-    console.log(secondDiv)
+    secondDiv.classList.add("second-container")    
 
     const descriptionDivs = createSecondDivElements(pizzaData);
     const advertisementDivs = advertisementDiv(pizzaData)
@@ -30,21 +26,21 @@ export const createSecondDiv = ({ pizzaData }) => {
     secondDiv.appendChild(descriptionDivs)
     secondDiv.appendChild(advertisementDivs)
 
-
-    // createSecondDivElements(pizzaData)
     rootDiv.appendChild(secondDiv)
 }
+export const createthirdDiv = ({pizzaData,allergensData}) => {
+    createAllergensFilter(pizzaData,allergensData)
+    rootDiv.appendChild(thirdDiv)
 
+}
 
 
 
 async function main () {
     const data = await fetchPizzaObject()
-    // console.log(data)
     createFirstDiv(data);
     createSecondDiv(data);
-    fetchallergensObject().then(() => {
-    })
+    createthirdDiv (data);
 }
 
 window.addEventListener("load", main);

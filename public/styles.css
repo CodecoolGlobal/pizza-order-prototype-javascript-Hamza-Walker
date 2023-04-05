@@ -1,8 +1,14 @@
-
+@import url("./reset.css");
+#root {
+  display: flex;
+	justify-content: space-around;
+	width: 80%;
+  padding: 20px;
+}
 /* Styles for the firstDiv (menu)   */
 .pizza-menu {
     background-color: #B4BCCF;
-    padding: -2px;
+    /* padding: -2px; */
     border-radius: 10px;
     width: 250px;
     height: 762px;
@@ -26,7 +32,7 @@
     background-color: #ffffff;
 }
 .pizza-item:hover {
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 16px rgba(3, 238, 3, 0.683);
     transform: scale(1.05);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
   }
@@ -41,18 +47,21 @@
 }
 
 /* Styles for the pizza description div */
-.pizza-description {
-    background-color: #FFFFFF;
+.second-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+   
+  /* background-color: #FFFFFF;
     border-radius: 10px;
     margin-top: 20px;
     padding: 20px;
     width: 250px;
     height: 500px;
-    display: flex;
-    /* overflow-y: auto; */
+     */
   }
 .description {
-  width: 250px;
+  width: 661px;
   height: 500px;
 
 }
@@ -121,12 +130,13 @@
   
   /* advertisement div  */
   .advertisement-div {
-    width: 300px;
+    width: 635px;
     height: 200px;
     background-color: #2f2f2f;
     padding: 16px;
     margin-top: 565px;
     border-radius: 10px;
+    position: absolute;
   }
   
   .advertisement-title {
@@ -155,4 +165,5 @@
     height: auto;
     margin-top: 16px;
   }
+
   
