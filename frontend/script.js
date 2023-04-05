@@ -1,4 +1,4 @@
-import { createFirstDivElements , createSecondDivElements } from "./helpScript.js";
+import { createFirstDivElements , createSecondDivElements, advertisementDiv } from "./helpScript.js";
 import { fetchPizzaObject, pizzaObject, fetchallergensObject , allergensObject } from "./fetchJson.js";
 export const rootDiv = document.getElementById("root");
 
@@ -23,7 +23,7 @@ export const createSecondDiv = () => {
     secondDiv.appendChild(descriptionDivs)
     
     createSecondDivElements(pizzaObject)
-
+    advertisementDiv()
     // rootDiv.appendChild(secondDiv)
 }
 

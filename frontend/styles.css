@@ -114,3 +114,40 @@
     object-fit: cover;
   }
   
+  /* advertisement div  */
+  .advertisement-div {
+    width: 300px;
+    height: 200px;
+    background-color: #2f2f2f;
+    padding: 16px;
+    margin-top: 565px;
+    border-radius: 10px;
+  }
+  
+  .advertisement-title {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: white;
+  }
+  
+  .advertisement-paragraph {
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: white;
+
+  }
+  
+  button {
+    background-color: orange;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 16px;
+  }
+  

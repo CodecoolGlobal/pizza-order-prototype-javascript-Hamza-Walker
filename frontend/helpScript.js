@@ -1,5 +1,4 @@
 import { rootDiv } from "./script.js";
-
 export let selectedElement = null;
 
 
@@ -95,6 +94,40 @@ descriptionDiv.appendChild(pizzaDescDiv);
 descriptionDiv.appendChild(ingredientsDiv);
 
 rootDiv.appendChild(descriptionDiv)
+// const advetisementToAppend = advertisementDiv()
+// rootDiv.appendChild(advetisementToAppend)
 // createSecondDiv()
 return descriptionDiv;
 };
+
+export const advertisementDiv = () => {
+// container div element
+const advertisementDiv = document.createElement('div');
+advertisementDiv.classList.add('advertisement-div');
+
+// h3 element for title
+const titleElement = document.createElement('h3');
+titleElement.classList.add('advertisement-title');
+titleElement.textContent = 'Advertisement Title';
+advertisementDiv.appendChild(titleElement);
+
+// p element for paragraph
+const paragraphElement = document.createElement('p');
+paragraphElement.classList.add('advertisement-paragraph');
+paragraphElement.textContent = 'This is a sample advertisement.';
+advertisementDiv.appendChild(paragraphElement);
+
+//  button element
+const buttonElement = document.createElement('button');
+buttonElement.textContent = 'Click me';
+advertisementDiv.appendChild(buttonElement);
+
+//  img element for image
+const imageElement = document.createElement('img');
+imageElement.src = 'pizzaAdd.png'; // Replace with the actual image source
+advertisementDiv.appendChild(imageElement);
+
+// Append the advertisementDiv to the DOM
+rootDiv.appendChild(advertisementDiv);
+    // return advertisementDiv
+}
