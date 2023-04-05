@@ -137,7 +137,8 @@ secondDiv.appendChild(advertisementDiv);
 }
 
 export const createAllergensFilter = (pizzaData,allergensData) => {
-  const allergenCheckboxes = document.getElementById('allergen-checkboxes');
+  const allergenCheckboxes = document.createElement('input');
+  allergenCheckboxes.type = 'checkbox'
   const pizzaList = document.getElementById('pizzas');
   console.log(pizzaData,allergensData)
     // async function fetchData(url) {
@@ -145,53 +146,53 @@ export const createAllergensFilter = (pizzaData,allergensData) => {
     //   return response.json();
     // }
 
-  function displayAllergens(allergens) {
-    allergens.forEach((allergen) => {
-      const checkbox = document.createElement('input');
-      checkbox.type = 'checkbox';
-      checkbox.id = `allergen-${allergen.id}`;
-      checkbox.dataset.allergenId = allergen.id;
+  // function displayAllergens(allergens) {
+  //   allergens.forEach((allergen) => {
+  //     const checkbox = document.createElement('input');
+  //     checkbox.type = 'checkbox';
+  //     checkbox.id = `allergen-${allergen.id}`;
+  //     checkbox.dataset.allergenId = allergen.id;
 
-      const label = document.createElement('label');
-      label.htmlFor = `allergen-${allergen.id}`;
-      label.textContent = allergen.name;
+  //     const label = document.createElement('label');
+  //     label.htmlFor = `allergen-${allergen.id}`;
+  //     label.textContent = allergen.name;
 
-      // allergenCheckboxes.appendChild(checkbox);
-      // allergenCheckboxes.appendChild(label);
-    });
-  }
+  //     // allergenCheckboxes.appendChild(checkbox);
+  //     // allergenCheckboxes.appendChild(label);
+  //   });
+  // }
 
-    function displayPizzas(pizzas) {
-      const pizzaList = document.createElement("li")
-      // pizzaList.innerHTML = '';
-      pizzas.forEach((pizza) => {
-        const listItem = document.createElement('li');
-        listItem.textContent = `${pizza.name} - ${pizza.ingredients.join(', ')}`;
-        pizzaList.appendChild(listItem);
-      });
-    }
+    // function displayPizzas(pizzas) {
+    //   const pizzaList = document.createElement("li")
+    //   // pizzaList.innerHTML = '';
+    //   pizzas.forEach((pizza) => {
+    //     const listItem = document.createElement('li');
+    //     listItem.textContent = `${pizza.name} - ${pizza.ingredients.join(', ')}`;
+    //     pizzaList.appendChild(listItem);
+    //   });
+    // }
 
-    async function loadPizzasAndAllergens() {
-      // const [pizzas, allergens] = await Promise.all([
-      //   fetchData('/api/pizza'),
-      //   fetchData('/api/allergen'),
-      // ]);
+    // async function loadPizzasAndAllergens() {
+    //   // const [pizzas, allergens] = await Promise.all([
+    //   //   fetchData('/api/pizza'),
+    //   //   fetchData('/api/allergen'),
+    //   // ]);
 
-      displayAllergens(allergensData);
-      displayPizzas(pizzaData);
+    //   displayAllergens(allergensData);
+    //   displayPizzas(pizzaData);
 
-      allergenCheckboxes.addEventListener('change', () => {
-        const checkedAllergens = Array.from(
-          allergenCheckboxes.querySelectorAll('input:checked')
-        ).map((checkbox) => parseInt(checkbox.dataset.allergenId));
+    //   allergenCheckboxes.addEventListener('change', () => {
+    //     const checkedAllergens = Array.from(
+    //       allergenCheckboxes.querySelectorAll('input:checked')
+    //     ).map((checkbox) => parseInt(checkbox.dataset.allergenId));
 
-        const filteredPizzas = pizzas.filter((pizza) => {
-          return checkedAllergens.every((allergenId) => !pizza.allergens.includes(allergenId));
-        });
+    //     const filteredPizzas = pizzas.filter((pizza) => {
+    //       return checkedAllergens.every((allergenId) => !pizza.allergens.includes(allergenId));
+    //     });
 
-        displayPizzas(filteredPizzas);
-      });
-    }
+    //     displayPizzas(filteredPizzas);
+    //   });
+    // }
 
-    loadPizzasAndAllergens();
+    // loadPizzasAndAllergens();
 }

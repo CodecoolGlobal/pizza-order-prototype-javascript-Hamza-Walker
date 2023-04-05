@@ -131,12 +131,13 @@
   /* advertisement div  */
   .advertisement-div {
     width: 635px;
-    height: 200px;
+    height: 150px;
     background-color: #2f2f2f;
     padding: 16px;
     margin-top: 565px;
     border-radius: 10px;
     position: absolute;
+    display: flex;
   }
   
   .advertisement-title {
@@ -161,9 +162,11 @@
   }
   
   img {
-    max-width: 100%;
+   
+    width: 170px;
+    /* max-width: 100%;
     height: auto;
-    margin-top: 16px;
+    margin-top: 16px; */
   }
 
   
