@@ -2,6 +2,7 @@ import config from './app/config.js';
 import express from 'express';
 import rootRoute from './routes/root.route.js';
 import fs from 'node:fs/promises';
+import path from 'node:path';
 
 const server = express();
 
@@ -21,6 +22,10 @@ server.get('/api/pizza', async (req, res) => {
 server.get('/api/allergen', async (req, res) => {
   const allergens = await readJSONFile('./data/allergens.json');
   res.json(allergens);
+});
+
+server.get('/pizza/list', (req, res) => {
+  res.sendFile(path.resolve('public/pizza_list.html'));
 });
 
 server.listen(config.api.port, () => console.log(`Server listening on http://localhost:${config.api.port}`));
