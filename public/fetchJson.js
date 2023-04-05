@@ -7,7 +7,7 @@ export async function fetchJsonObjects() {
         const pizzaData = await pizzaResponse.json();
         const allergensData = await allergensResponse.json()
         
-        console.log(pizzaData, allergensData)
+        // console.log(pizzaData, allergensData)
 
     
 

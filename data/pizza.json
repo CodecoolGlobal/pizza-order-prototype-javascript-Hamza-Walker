@@ -3,6 +3,7 @@
     "id": "a272ba15-bbc4-4aff-8143-488986bf0cbb",
     "name": "Margherita",
     "order": 0,
+    "allergens":["A", "G"],
     "description": "A classic pizza made with San Marzano tomato sauce, mozzarella cheese, fresh basil, and olive oil.",
     "url": "https://i3-img.kabeleins.de/pis/ezone/b082qgELB38wdEB0AB1fHPDQCtTDCJ4UYl_Ic-IXCoYylZ0mXbP3Z8_B4JBo6LCimhDa22AtrTM8DB_M9Sv4e9OM8slbXthgEbE4ubOs1rnC2jOcxZ9a-oZ09bK01Tt0bB0jdcKUyNwRtXZgI_SCKdmfeHnRn-uUTaU_hGyIk_-_fc_fmojYvPWWQZDy8CP_flOEDdOwrIQcHQVtwMUpKuhqjWw10xuKMQ/profile:mag-996x562",
     "ingredients": [
@@ -18,6 +19,7 @@
     "id": "1393aede-8445-46d5-8a47-9ad031daa3f0",
     "name": "Pepperoni",
     "order": 1,
+    "allergens":["A","G","C"],
     "description": "A classic pizza made with San Marzano tomato sauce, mozzarella cheese, pepperoni, and olive oil.",
     "url": "https://media.product.which.co.uk/prod/images/ar_2to1_1500x750/fab41e2c49cc-leadpepperoni-pizza.jpg",
     "ingredients": [
@@ -33,6 +35,7 @@
     "id": "ef754567-5f1a-421b-8dd8-4da7a1444d81",
     "name": "Hawaiian",
     "order": 2,
+    "allergens":["A","G"],
     "description": "A tropical pizza made with San Marzano tomato sauce, mozzarella cheese, ham, pineapple, and olive oil.",
     "url": "https://australianfoodtimeline.com.au/wp-content/uploads/1960/09/hawaiian-pizza-1024x576.png",
     "ingredients": [
@@ -49,6 +52,7 @@
     "id": "273b392b-a6b5-4a81-bbce-381c2814ff50",
     "name": "Meat Lover's",
     "order": 3,
+    "allergens":["A","G","L"],
     "description": "A hearty pizza made with San Marzano tomato sauce, mozzarella cheese, pepperoni, sausage, bacon, ground beef, and olive oil.",
     "url": "https://weirdandwildpizza.com/wp-content/uploads/2019/07/meat-love-8.jpg",
     "ingredients": [
@@ -67,6 +71,7 @@
     "id": "1922578f-ed08-4bdd-9515-7927d70b580a",
     "name": "Vegetarian",
     "order": 4,
+    "allergens":["A","G"],
     "description": "A veggie-packed pizza made with San Marzano tomato sauce, mozzarella cheese, mushrooms, green peppers, onions, black olives, and olive oil.",
     "url": "https://i0.wp.com/www.thursdaynightpizza.com/wp-content/uploads/2022/06/veggie-pizza-side-view-out-of-oven.png?resize=720%2C480&ssl=1",
     "ingredients": [
@@ -85,6 +90,7 @@
     "id": "4bca2e7e-e578-4401-beee-88905a02c2d7",
     "name": "Supreme",
     "order": 5,
+    "allergens":["G"],
     "description": "A loaded pizza made with San Marzano tomato sauce, mozzarella cheese, pepperoni, sausage, mushrooms, green peppers, onions, black olives, and olive oil.",
     "url": "https://tuscaneats.com/wp-content/uploads/2022/02/supreme-pizza.jpg",
     "ingredients": [
@@ -105,6 +111,7 @@
     "id": "dff4fcad-9914-4684-b17a-7e3e9c662ffe",
     "name": "BBQ Chicken",
     "order": 6,
+    "allergens":["A","G"],
     "description": "A delicious pizza made with BBQ sauce, mozzarella cheese, grilled chicken, red onions, and cilantro.",
       "url": "https://www.tasteandtellblog.com/wp-content/uploads/2021/01/BBQ-Chicken-Pizza-3.jpg",
     "ingredients": [
@@ -122,6 +129,7 @@
     "id": "27a715fe-3c7e-4753-8c18-e7018e8ec017",
     "name": "Buffalo Chicken",
     "order": 7,
+    "allergens":["A","G"],
     "description": "A gourmet pizza made with San Marzano tomato sauce, mozzarella cheese, mushrooms, and truffle oil.",
       "url": "https://www.jessicagavin.com/wp-content/uploads/2022/02/buffalo-chicken-pizza-16-1200.jpg",
     "ingredients": [
@@ -139,6 +147,7 @@
     "id": "fc7e0e1e-59c3-42ad-8996-10bd5bb0444c",
     "name": "Golden Pizza",
     "order": 8,
+    "allergens":["A","G"],
     "description":"Topped with white Stilton cheese, foie gras, French truffles, Ossetra caviar and 24 karat gold leaf, the pizza is also garnished with edible flowers.",
     "url": "https://arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/AVQ4ZQHB65FV3E7IKWGTIWH7MM.jpg",
     "ingredients": [
@@ -157,6 +166,7 @@
     "id": "cd6da8a2-7d67-47c6-8a17-73905d2b73de",
     "name": "Four Cheese",
     "order": 9,
+    "allergens":["A","G"],
     "description": "A cheese lover's dream pizza made with San Marzano tomato sauce, mozzarella cheese, parmesan cheese, feta cheese, and gorgonzola cheese.",
       "url": "https://static.toiimg.com/thumb/59123476.cms?width=1200&height=900",
     "ingredients": [

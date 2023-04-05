@@ -1,12 +1,46 @@
 import { secondDiv, thirdDiv} from "./script.js";
 export let selectedElement = null;
+let pizzaDivs; 
 
 
+// export const createFirstDivElements = (pizzaObject) => {
+//   const pizzaDivs = pizzaObject.map(pizza => {
+//     const pizzaDiv = document.createElement("div");
+//     pizzaDiv.classList.add("pizza-item");
 
-export const createFirstDivElements = (pizzaObject) => {
-  const pizzaDivs = pizzaObject.map(pizza => {
+//     const pizzaName = document.createElement("h3");
+//     pizzaName.textContent = pizza.name;
+//     pizzaDiv.appendChild(pizzaName);
+
+//     const pizzaPrice = document.createElement("p");
+//     pizzaPrice.textContent = `Price: $${pizza.price}`;
+//     pizzaDiv.appendChild(pizzaPrice);
+
+//     // Add click event listener to the pizza div
+//     pizzaDiv.addEventListener('click', () => {
+//       selectedElement = pizza;
+//       console.log('Selected pizza:', selectedElement);
+//       const existingDescriptionDiv = document.querySelector('.description');
+//       if (existingDescriptionDiv) {
+//         existingDescriptionDiv.remove();
+//       }
+//       const descriptionDiv = createSecondDivElements(pizzaObject);
+//       const pizzaContainer = document.querySelector('.pizza-container');
+//       if (pizzaContainer) {
+//         pizzaContainer.appendChild(descriptionDiv);
+//       }
+//     });
+
+//     return pizzaDiv;
+//   });
+//   return pizzaDivs;
+// };
+export const createFirstDivElements = (pizzaData, allergensData) => {
+    pizzaDivs = pizzaData.map(pizza => {
     const pizzaDiv = document.createElement("div");
-    pizzaDiv.classList.add("pizza-item");
+    pizzaDiv.classList.add('pizza-item');
+    pizzaDiv.classList.add(pizza.name.toLowerCase().replace(/\s+/g, '-'));
+
 
     const pizzaName = document.createElement("h3");
     pizzaName.textContent = pizza.name;
@@ -16,6 +50,12 @@ export const createFirstDivElements = (pizzaObject) => {
     pizzaPrice.textContent = `Price: $${pizza.price}`;
     pizzaDiv.appendChild(pizzaPrice);
 
+    // Check for allergens and add class to pizza div if it contains allergens
+    const pizzaAllergens = allergensData.filter(allergen => pizza.ingredients.includes(allergen.name));
+    if (pizzaAllergens.length > 0) {
+      pizzaDiv.classList.add("has-allergens");
+    }
+
     // Add click event listener to the pizza div
     pizzaDiv.addEventListener('click', () => {
       selectedElement = pizza;
@@ -24,7 +64,7 @@ export const createFirstDivElements = (pizzaObject) => {
       if (existingDescriptionDiv) {
         existingDescriptionDiv.remove();
       }
-      const descriptionDiv = createSecondDivElements(pizzaObject);
+      const descriptionDiv = createSecondDivElements(pizzaData);
       const pizzaContainer = document.querySelector('.pizza-container');
       if (pizzaContainer) {
         pizzaContainer.appendChild(descriptionDiv);
@@ -35,6 +75,67 @@ export const createFirstDivElements = (pizzaObject) => {
   });
   return pizzaDivs;
 };
+
+export const createAllergensFilter = (pizzaData, allergensData) => {
+  
+  console.log(pizzaDivs[0].classList[1])
+  
+  
+  
+  
+  const mainDiv = document.createElement('div');
+  const allergenCheckboxes = document.createElement('div');
+  
+  allergenCheckboxes.appendChild(document.createTextNode('Allergens: '));
+
+  allergensData.forEach((allergen) => {
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.id = `allergen-${allergen.id}`;
+    checkbox.dataset.allergenId = allergen.id;
+
+    const label = document.createElement('label');
+    label.htmlFor = `allergen-${allergen.id}`;
+    label.textContent = allergen.name;
+
+    allergenCheckboxes.appendChild(checkbox);
+    allergenCheckboxes.appendChild(label);
+  });
+  
+  mainDiv.appendChild(allergenCheckboxes);
+  // mainDiv.appendChild(pizzaDivs);
+  
+  allergenCheckboxes.addEventListener('change', () => {
+    const checkedAllergens = Array.from(
+      allergenCheckboxes.querySelectorAll('input:checked')
+    ).map((checkbox) => checkbox.dataset.allergenId);
+  
+    pizzaDivs.forEach((pizzaDiv) => {
+      const pizzaName = pizzaDiv.classList[1]; // Assumes the first class in the classList contains the pizza name
+      const pizzaAllergens = allergensData.filter(allergen => pizzaIngredients[pizzaName].includes(allergen.name));
+  
+      pizzaAllergens.forEach((allergen) => {
+        if (!checkedAllergens.includes(allergen.id)) {
+          pizzaDiv.classList.add('hover-effect');
+        } else {
+          pizzaDiv.classList.remove('hover-effect');
+        }
+      });
+    });
+  });
+  
+  
+  
+  
+  // console.log(pizzaDivs)
+  thirdDiv.appendChild(mainDiv)
+  return mainDiv;
+};
+
+
+
+
+
 
 export const createSecondDivElements = (pizzaObject) => {
   const selectedElementPizza = selectedElement || pizzaObject[0];
@@ -80,6 +181,7 @@ export const createSecondDivElements = (pizzaObject) => {
   const ingredientsList = document.createElement('ul');
 
   selectedElementPizza.ingredients.forEach((ingredient) => {
+    // console.log(ingredient)
     const ingredientItem = document.createElement('li');
     ingredientItem.textContent = ingredient.name;
     ingredientsList.appendChild(ingredientItem);
@@ -138,53 +240,4 @@ secondDiv.appendChild(advertisementDiv);
 
 
 
-export const createAllergensFilter = (pizzaData, allergensData) => {
-  const mainDiv = document.createElement('div');
-  const allergenCheckboxes = document.createElement('div');
-  const pizzaList = document.createElement('ul');
 
-  allergenCheckboxes.appendChild(document.createTextNode('Allergens: '));
-
-  allergensData.forEach((allergen) => {
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.id = `allergen-${allergen.id}`;
-    checkbox.dataset.allergenId = allergen.id;
-
-    const label = document.createElement('label');
-    label.htmlFor = `allergen-${allergen.id}`;
-    label.textContent = allergen.name;
-
-    allergenCheckboxes.appendChild(checkbox);
-    allergenCheckboxes.appendChild(label);
-  });
-
-  pizzaData.forEach((pizza) => {
-    const listItem = document.createElement('li');
-    listItem.textContent = `${pizza.name} - ${pizza.ingredients.join(', ')}`;
-    pizzaList.appendChild(listItem);
-  });
-
-  mainDiv.appendChild(allergenCheckboxes);
-  mainDiv.appendChild(pizzaList);
-
-  allergenCheckboxes.addEventListener('change', () => {
-    const checkedAllergens = Array.from(
-      allergenCheckboxes.querySelectorAll('input:checked')
-    ).map((checkbox) => parseInt(checkbox.dataset.allergenId));
-
-    const filteredPizzas = pizzaData.filter((pizza) => {
-      return checkedAllergens.every((allergenId) => !pizza.allergens.includes(allergenId));
-    });
-
-    pizzaList.innerHTML = '';
-
-    filteredPizzas.forEach((pizza) => {
-      const listItem = document.createElement('li');
-      listItem.textContent = `${pizza.name} - ${pizza.ingredients.join(', ')}`;
-      pizzaList.appendChild(listItem);
-    });
-  });
-  thirdDiv.appendChild(mainDiv)
-  return mainDiv;
-};

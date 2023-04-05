@@ -162,11 +162,12 @@
   }
   
   img {
-   
+  
     width: 170px;
-    /* max-width: 100%;
-    height: auto;
-    margin-top: 16px; */
   }
-
+.hover-effect{
+  box-shadow: 0 2px 16px rgba(3, 238, 3, 0.683);
+  transform: scale(1.05);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
   
