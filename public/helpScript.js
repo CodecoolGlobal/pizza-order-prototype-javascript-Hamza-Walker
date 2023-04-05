@@ -101,9 +101,6 @@ secondDiv.appendChild(descriptionDiv)
 return descriptionDiv;
 };
 
-// TODO: figure out the best Position to append the advertisement div
-// and why is th edescritiopn div not appended to the second div 
-// find a way arrount the event litener 
 export const advertisementDiv = () => {
 // container div element
 const advertisementDiv = document.createElement('div');
@@ -136,63 +133,58 @@ secondDiv.appendChild(advertisementDiv);
     return advertisementDiv
 }
 
-export const createAllergensFilter = (pizzaData,allergensData) => {
-  const allergenCheckboxes = document.createElement('input');
-  allergenCheckboxes.type = 'checkbox'
-  const pizzaList = document.getElementById('pizzas');
-  console.log(pizzaData,allergensData)
-    // async function fetchData(url) {
-    //   const response = await fetch(url);
-    //   return response.json();
-    // }
 
-  // function displayAllergens(allergens) {
-  //   allergens.forEach((allergen) => {
-  //     const checkbox = document.createElement('input');
-  //     checkbox.type = 'checkbox';
-  //     checkbox.id = `allergen-${allergen.id}`;
-  //     checkbox.dataset.allergenId = allergen.id;
 
-  //     const label = document.createElement('label');
-  //     label.htmlFor = `allergen-${allergen.id}`;
-  //     label.textContent = allergen.name;
 
-  //     // allergenCheckboxes.appendChild(checkbox);
-  //     // allergenCheckboxes.appendChild(label);
-  //   });
-  // }
 
-    // function displayPizzas(pizzas) {
-    //   const pizzaList = document.createElement("li")
-    //   // pizzaList.innerHTML = '';
-    //   pizzas.forEach((pizza) => {
-    //     const listItem = document.createElement('li');
-    //     listItem.textContent = `${pizza.name} - ${pizza.ingredients.join(', ')}`;
-    //     pizzaList.appendChild(listItem);
-    //   });
-    // }
 
-    // async function loadPizzasAndAllergens() {
-    //   // const [pizzas, allergens] = await Promise.all([
-    //   //   fetchData('/api/pizza'),
-    //   //   fetchData('/api/allergen'),
-    //   // ]);
+export const createAllergensFilter = (pizzaData, allergensData) => {
+  const mainDiv = document.createElement('div');
+  const allergenCheckboxes = document.createElement('div');
+  const pizzaList = document.createElement('ul');
 
-    //   displayAllergens(allergensData);
-    //   displayPizzas(pizzaData);
+  allergenCheckboxes.appendChild(document.createTextNode('Allergens: '));
 
-    //   allergenCheckboxes.addEventListener('change', () => {
-    //     const checkedAllergens = Array.from(
-    //       allergenCheckboxes.querySelectorAll('input:checked')
-    //     ).map((checkbox) => parseInt(checkbox.dataset.allergenId));
+  allergensData.forEach((allergen) => {
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.id = `allergen-${allergen.id}`;
+    checkbox.dataset.allergenId = allergen.id;
 
-    //     const filteredPizzas = pizzas.filter((pizza) => {
-    //       return checkedAllergens.every((allergenId) => !pizza.allergens.includes(allergenId));
-    //     });
+    const label = document.createElement('label');
+    label.htmlFor = `allergen-${allergen.id}`;
+    label.textContent = allergen.name;
 
-    //     displayPizzas(filteredPizzas);
-    //   });
-    // }
+    allergenCheckboxes.appendChild(checkbox);
+    allergenCheckboxes.appendChild(label);
+  });
 
-    // loadPizzasAndAllergens();
-}
+  pizzaData.forEach((pizza) => {
+    const listItem = document.createElement('li');
+    listItem.textContent = `${pizza.name} - ${pizza.ingredients.join(', ')}`;
+    pizzaList.appendChild(listItem);
+  });
+
+  mainDiv.appendChild(allergenCheckboxes);
+  mainDiv.appendChild(pizzaList);
+
+  allergenCheckboxes.addEventListener('change', () => {
+    const checkedAllergens = Array.from(
+      allergenCheckboxes.querySelectorAll('input:checked')
+    ).map((checkbox) => parseInt(checkbox.dataset.allergenId));
+
+    const filteredPizzas = pizzaData.filter((pizza) => {
+      return checkedAllergens.every((allergenId) => !pizza.allergens.includes(allergenId));
+    });
+
+    pizzaList.innerHTML = '';
+
+    filteredPizzas.forEach((pizza) => {
+      const listItem = document.createElement('li');
+      listItem.textContent = `${pizza.name} - ${pizza.ingredients.join(', ')}`;
+      pizzaList.appendChild(listItem);
+    });
+  });
+  thirdDiv.appendChild(mainDiv)
+  return mainDiv;
+};
