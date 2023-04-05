@@ -1,13 +1,13 @@
 import { createFirstDivElements , createSecondDivElements, advertisementDiv } from "./helpScript.js";
-import { fetchPizzaObject, pizzaObject, fetchallergensObject , allergensObject } from "./fetchJson.js";
+import { fetchPizzaObject, fetchallergensObject } from "./fetchJson.js";
 export const rootDiv = document.getElementById("root");
 
-const createFirstDiv = () => {
+const createFirstDiv = ({ pizzaData }) => {
     const firstDiv = document.createElement("div");
     firstDiv.classList.add("pizza-menu")
     // firstDiv.textContent = "put the pizza menu on me"
 
-    const pizzaDivs = createFirstDivElements(pizzaObject);
+    const pizzaDivs = createFirstDivElements(pizzaData);
     pizzaDivs.forEach(pizzaDiv => {
         firstDiv.appendChild(pizzaDiv);
     });
@@ -15,14 +15,14 @@ const createFirstDiv = () => {
     rootDiv.appendChild(firstDiv);
 }
 
-export const createSecondDiv = () => {
+export const createSecondDiv = ({ pizzaData }) => {
     const secondDiv = document.createElement("div");
     secondDiv.classList.add("pizza-description")
 
-    const descriptionDivs = createSecondDivElements(pizzaObject);
+    const descriptionDivs = createSecondDivElements(pizzaData);
     secondDiv.appendChild(descriptionDivs)
     
-    createSecondDivElements(pizzaObject)
+    createSecondDivElements(pizzaData)
     advertisementDiv()
     // rootDiv.appendChild(secondDiv)
 }
@@ -31,15 +31,12 @@ export const createSecondDiv = () => {
 
 
 
-function main () {
-    fetchPizzaObject().then(() => {
-        // console.log(pizzaObject.ingredients)
-
-        createFirstDiv();
-        createSecondDiv();
-    });
+async function main () {
+    const data = await fetchPizzaObject()
+    console.log(data)
+    createFirstDiv(data);
+    createSecondDiv(data);
     fetchallergensObject().then(() => {
-            // console.log(allergensObject)
     })
 }
 
