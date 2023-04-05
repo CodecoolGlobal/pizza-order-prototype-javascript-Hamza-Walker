@@ -3,7 +3,8 @@
     "id": "a272ba15-bbc4-4aff-8143-488986bf0cbb",
     "name": "Margherita",
     "order": 0,
-    "image": "margherita.png",
+    "description": "A classic pizza made with San Marzano tomato sauce, mozzarella cheese, fresh basil, and olive oil.",
+    "url": "https://i3-img.kabeleins.de/pis/ezone/b082qgELB38wdEB0AB1fHPDQCtTDCJ4UYl_Ic-IXCoYylZ0mXbP3Z8_B4JBo6LCimhDa22AtrTM8DB_M9Sv4e9OM8slbXthgEbE4ubOs1rnC2jOcxZ9a-oZ09bK01Tt0bB0jdcKUyNwRtXZgI_SCKdmfeHnRn-uUTaU_hGyIk_-_fc_fmojYvPWWQZDy8CP_flOEDdOwrIQcHQVtwMUpKuhqjWw10xuKMQ/profile:mag-996x562",
     "ingredients": [
       "6494989b-5ddb-4f68-b907-0ae948f1f7d8",
       "2ea20ddb-1e97-47a7-bf81-959f3fb20536",
@@ -17,7 +18,8 @@
     "id": "1393aede-8445-46d5-8a47-9ad031daa3f0",
     "name": "Pepperoni",
     "order": 1,
-    "image": "pepperoni.png",
+    "description": "A classic pizza made with San Marzano tomato sauce, mozzarella cheese, pepperoni, and olive oil.",
+    "url": "https://media.product.which.co.uk/prod/images/ar_2to1_1500x750/fab41e2c49cc-leadpepperoni-pizza.jpg",
     "ingredients": [
       "6494989b-5ddb-4f68-b907-0ae948f1f7d8",
       "2ea20ddb-1e97-47a7-bf81-959f3fb20536",
@@ -31,7 +33,8 @@
     "id": "ef754567-5f1a-421b-8dd8-4da7a1444d81",
     "name": "Hawaiian",
     "order": 2,
-    "image": "hawaiian.png",
+    "description": "A tropical pizza made with San Marzano tomato sauce, mozzarella cheese, ham, pineapple, and olive oil.",
+    "url": "https://australianfoodtimeline.com.au/wp-content/uploads/1960/09/hawaiian-pizza-1024x576.png",
     "ingredients": [
       "6494989b-5ddb-4f68-b907-0ae948f1f7d8",
       "2ea20ddb-1e97-47a7-bf81-959f3fb20536",
@@ -46,7 +49,8 @@
     "id": "273b392b-a6b5-4a81-bbce-381c2814ff50",
     "name": "Meat Lover's",
     "order": 3,
-    "image": "meat_lover's.png",
+    "description": "A hearty pizza made with San Marzano tomato sauce, mozzarella cheese, pepperoni, sausage, bacon, ground beef, and olive oil.",
+    "url": "https://weirdandwildpizza.com/wp-content/uploads/2019/07/meat-love-8.jpg",
     "ingredients": [
       "6494989b-5ddb-4f68-b907-0ae948f1f7d8",
       "2ea20ddb-1e97-47a7-bf81-959f3fb20536",
@@ -63,7 +67,8 @@
     "id": "1922578f-ed08-4bdd-9515-7927d70b580a",
     "name": "Vegetarian",
     "order": 4,
-    "image": "vegetarian.png",
+    "description": "A veggie-packed pizza made with San Marzano tomato sauce, mozzarella cheese, mushrooms, green peppers, onions, black olives, and olive oil.",
+    "url": "https://i0.wp.com/www.thursdaynightpizza.com/wp-content/uploads/2022/06/veggie-pizza-side-view-out-of-oven.png?resize=720%2C480&ssl=1",
     "ingredients": [
       "6494989b-5ddb-4f68-b907-0ae948f1f7d8",
       "2ea20ddb-1e97-47a7-bf81-959f3fb20536",
@@ -80,7 +85,8 @@
     "id": "4bca2e7e-e578-4401-beee-88905a02c2d7",
     "name": "Supreme",
     "order": 5,
-    "image": "supreme.png",
+    "description": "A loaded pizza made with San Marzano tomato sauce, mozzarella cheese, pepperoni, sausage, mushrooms, green peppers, onions, black olives, and olive oil.",
+    "url": "https://tuscaneats.com/wp-content/uploads/2022/02/supreme-pizza.jpg",
     "ingredients": [
       "6494989b-5ddb-4f68-b907-0ae948f1f7d8",
       "2ea20ddb-1e97-47a7-bf81-959f3fb20536",
@@ -99,7 +105,8 @@
     "id": "dff4fcad-9914-4684-b17a-7e3e9c662ffe",
     "name": "BBQ Chicken",
     "order": 6,
-    "image": "bbq_chicken.png",
+    "description": "A delicious pizza made with BBQ sauce, mozzarella cheese, grilled chicken, red onions, and cilantro.",
+      "url": "https://www.tasteandtellblog.com/wp-content/uploads/2021/01/BBQ-Chicken-Pizza-3.jpg",
     "ingredients": [
       "6494989b-5ddb-4f68-b907-0ae948f1f7d8",
       "d3fdf0ca-5a2f-4573-a438-100877187e30",
@@ -115,7 +122,8 @@
     "id": "27a715fe-3c7e-4753-8c18-e7018e8ec017",
     "name": "Buffalo Chicken",
     "order": 7,
-    "image": "buffalo_chicken.png",
+    "description": "A gourmet pizza made with San Marzano tomato sauce, mozzarella cheese, mushrooms, and truffle oil.",
+      "url": "https://www.jessicagavin.com/wp-content/uploads/2022/02/buffalo-chicken-pizza-16-1200.jpg",
     "ingredients": [
       "6494989b-5ddb-4f68-b907-0ae948f1f7d8",
       "741efebd-50da-4b99-b26e-0efe96d6b683",
@@ -129,24 +137,28 @@
   },
   {
     "id": "fc7e0e1e-59c3-42ad-8996-10bd5bb0444c",
-    "name": "White Pizza",
+    "name": "Golden Pizza",
     "order": 8,
-    "image": "white_pizza.png",
+    "description":"Topped with white Stilton cheese, foie gras, French truffles, Ossetra caviar and 24 karat gold leaf, the pizza is also garnished with edible flowers.",
+    "url": "https://arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/AVQ4ZQHB65FV3E7IKWGTIWH7MM.jpg",
     "ingredients": [
+      "1970e9ed-fa64-4edf-8b0b-b450d450b165",
       "6494989b-5ddb-4f68-b907-0ae948f1f7d8",
+      "360329ed-8e88-4a53-8716-6e32cf5ea48b",
       "0c78b739-c982-43ef-9932-6205d18cc3d3",
       "b4934859-bdde-449b-a5f9-fec4243bdb9c",
       "68532418-eb06-4d32-a519-c2f1eab415d2",
       "2719b0f5-cfec-40b0-8051-41a28beb35d0",
       "62bbc0dd-9df5-4bef-bf75-fef529317f4d"
     ],
-    "price": 12.95
+    "price": 1999.99
   },
   {
     "id": "cd6da8a2-7d67-47c6-8a17-73905d2b73de",
     "name": "Four Cheese",
     "order": 9,
-    "image": "four_cheese.png",
+    "description": "A cheese lover's dream pizza made with San Marzano tomato sauce, mozzarella cheese, parmesan cheese, feta cheese, and gorgonzola cheese.",
+      "url": "https://static.toiimg.com/thumb/59123476.cms?width=1200&height=900",
     "ingredients": [
       "6494989b-5ddb-4f68-b907-0ae948f1f7d8",
       "2ea20ddb-1e97-47a7-bf81-959f3fb20536",
