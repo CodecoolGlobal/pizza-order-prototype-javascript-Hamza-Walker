@@ -1,4 +1,4 @@
-import { createFirstDivElements , createSecondDivElements, advertisementDiv,createAllergensFilter ,orders ,popForm } from "./helpScript.js";
+import { createFirstDivElements , createSecondDivElements,createAllergensFilter ,orders ,popForm } from "./helpScript.js";
 import { fetchJsonObjects } from "./fetchJson.js";
 export const rootDiv = document.getElementById("root");
 export const firstDiv = document.createElement("div");
