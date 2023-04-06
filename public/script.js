@@ -26,9 +26,9 @@ const createSecondDiv = ({ pizzaData }) => {
     secondDiv.classList.add("second-container")    
 
     const descriptionDivs = createSecondDivElements(pizzaData);
-    const advertisementDivs = advertisementDiv(pizzaData)
+   // const advertisementDivs = advertisementDiv(pizzaData)
     secondDiv.appendChild(descriptionDivs)
-    secondDiv.appendChild(advertisementDivs)
+    //secondDiv.appendChild(advertisementDivs)
 
     rootDiv.appendChild(secondDiv)
 }
