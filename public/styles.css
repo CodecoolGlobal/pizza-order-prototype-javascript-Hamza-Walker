@@ -32,7 +32,7 @@
     background-color: #ffffff;
 }
 .pizza-item:hover {
-    box-shadow: 0 2px 16px rgba(3, 238, 3, 0.683);
+    box-shadow: 0 2px 16px #ee9803ae;
     transform: scale(1.05);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
   }
