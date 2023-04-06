@@ -102,60 +102,36 @@ export const createAllergensFilter = (pizzaData, allergensData) => {
 
   mainDiv.appendChild(allergenCheckboxes);
 
-
   // Add event listener to the allergen checkboxes
   allergenCheckboxes.addEventListener('change', () => {
     const checkedAllergens = Array.from(
       allergenCheckboxes.querySelectorAll('input:checked')
     ).map((checkbox) => checkbox.dataset.allergenId);
       console.log(allergenCheckboxes)
-
-    // checkedAllergens.forEach(allergin => {
-    //   pizzaDivs.forEach(pizzaDiv => {
-    //     const pizzaName = pizzaDiv.classList[1];
-    //     const matchDivIfAllergenInPizza = pizzaName.map(name => pizzaData.forEach(piza => {
-    //       if(piza.allergens.includes(allergin)){
-    //         return piza.name
-    //       }
-           
-    //     }))
-    //     return pizzaDiv
-    //   })
-    // })
-    // Loop through the pizza divs and apply the hover effect to those that contain unchecked allergens
+  
     pizzaDivs.forEach((pizzaDiv) => {
       const pizzaName = pizzaDiv.classList[1]; // Assumes the second class in the classList contains the pizza name
-
-      const pizzaAllergens = allergensData.filter(allergen => pizzaData.forEach(piza => {
-        // console.log(piza)
-        return piza.allergens.includes(allergen.id)
-      })
-      );
+  
+      // Get the corresponding pizza object
+      const pizza = pizzaData.find(p => p.name.toLowerCase().replace(/\s+/g, '-') === pizzaName);
+  
+      const pizzaAllergens = allergensData.filter(allergen => pizza.allergens.includes(allergen.id));
+  
       console.log(pizzaAllergens)
-
-
-      pizzaAllergens.forEach((allergen) => {
-        if (!checkedAllergens.includes(allergen.id)) {
-          pizzaDiv.classList.add('hover-effect');
-        } else {
-          pizzaDiv.classList.remove('hover-effect');
-        }
-      });
+  
+      const hasAllCheckedAllergens = checkedAllergens.every(checkedAllergen => !pizzaAllergens.find(allergen => allergen.id === checkedAllergen));
+  
+      if (hasAllCheckedAllergens) {
+        pizzaDiv.classList.add('hover-effect');
+      } else {
+        pizzaDiv.classList.remove('hover-effect');
+      }
     });
   });
-  
-  
-  
-  
-  // console.log(pizzaDivs)
-  thirdDiv.appendChild(mainDiv)
+
+  thirdDiv.appendChild(mainDiv);
   return mainDiv;
 };
-
-
-
-
-
 
 export const createSecondDivElements = (pizzaObject) => {
   const selectedElementPizza = selectedElement || pizzaObject[0];
@@ -338,3 +314,15 @@ function createOrderDiv(pizza) {
 
 
 
+// checkedAllergens.forEach(allergin => {
+    //   pizzaDivs.forEach(pizzaDiv => {
+    //     const pizzaName = pizzaDiv.classList[1];
+    //     const matchDivIfAllergenInPizza = pizzaName.map(name => pizzaData.forEach(piza => {
+    //       if(piza.allergens.includes(allergin)){
+    //         return piza.name
+    //       }
+           
+    //     }))
+    //     return pizzaDiv
+    //   })
+    // })

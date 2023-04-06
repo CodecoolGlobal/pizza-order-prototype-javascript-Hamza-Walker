@@ -174,4 +174,59 @@
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
+/* styling for the order elements  */
+.order {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.order-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.order-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.order-quantity {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0 1rem;
+}
+
+.plus-button,
+.minus-button {
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.plus-button:hover,
+.minus-button:hover {
+  background-color: #ddd;
+}
+
+.plus-button:active,
+.minus-button:active {
+  background-color: #ccc;
+}
+
+
   
