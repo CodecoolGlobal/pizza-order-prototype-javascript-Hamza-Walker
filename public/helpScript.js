@@ -51,6 +51,8 @@ export const createAllergensFilter = (pizzaData, allergensData) => {
   const mainDiv = document.createElement('div');
   const allergenCheckboxes = document.createElement('div');
 
+  mainDiv.classList.add("filter-div");
+
   allergenCheckboxes.appendChild(document.createTextNode('Allergens: '));
 
   allergensData.forEach((allergen) => {
@@ -177,31 +179,31 @@ secondDiv.appendChild(descriptionDiv)
 return descriptionDiv;
 };
 
-export const advertisementDiv = () => {
-const advertisementDiv = document.createElement('div');
-advertisementDiv.classList.add('advertisement-div');
+// export const advertisementDiv = () => {
+// const advertisementDiv = document.createElement('div');
+// advertisementDiv.classList.add('advertisement-div');
 
-const titleElement = document.createElement('h3');
-titleElement.classList.add('advertisement-title');
-titleElement.textContent = 'Advertisement Title';
-advertisementDiv.appendChild(titleElement);
+// const titleElement = document.createElement('h3');
+// titleElement.classList.add('advertisement-title');
+// titleElement.textContent = 'Advertisement Title';
+// advertisementDiv.appendChild(titleElement);
 
-const paragraphElement = document.createElement('p');
-paragraphElement.classList.add('advertisement-paragraph');
-paragraphElement.textContent = 'This is a sample advertisement.';
-advertisementDiv.appendChild(paragraphElement);
+// const paragraphElement = document.createElement('p');
+// paragraphElement.classList.add('advertisement-paragraph');
+// paragraphElement.textContent = 'This is a sample advertisement.';
+// advertisementDiv.appendChild(paragraphElement);
 
-const buttonElement = document.createElement('button');
-buttonElement.textContent = 'Click me';
-advertisementDiv.appendChild(buttonElement);
+// const buttonElement = document.createElement('button');
+// buttonElement.textContent = 'Click me';
+// advertisementDiv.appendChild(buttonElement);
 
-const imageElement = document.createElement('img');
-imageElement.src = 'pizzaAdd.png';
-advertisementDiv.appendChild(imageElement);
-console.log(secondDiv)
-secondDiv.appendChild(advertisementDiv);
-    return advertisementDiv
-}
+// const imageElement = document.createElement('img');
+// imageElement.src = 'pizzaAdd.png';
+// advertisementDiv.appendChild(imageElement);
+// console.log(secondDiv)
+// secondDiv.appendChild(advertisementDiv);
+//     return advertisementDiv
+// }
 
 export const createthirdDivElements = (pizza) =>{
 

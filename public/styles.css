@@ -1,49 +1,62 @@
 @import url("./reset.css");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-image: url("./bilder/pizzaback.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #root {
   display: flex;
-	justify-content: space-around;
-	width: 80%;
+  justify-content: space-around;
+  width: 80%;
   padding: 20px;
 }
+
 /* Styles for the firstDiv (menu)   */
 .pizza-menu {
-    background-color: #B4BCCF;
-    /* padding: -2px; */
-    border-radius: 10px;
-    width: 250px;
-    height: 762px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-  }
-  .pizza-item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    margin: 5px;
-    padding: 20px;
-    width: 220px;
-    height: 25px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
+  background-color: rgba(255, 160, 122, 0.9);
+  border-radius: 10px;
+  width: 250px;
+  height: 762px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.pizza-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 20px;
+  width: 220px;
+  height: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
 .pizza-item:hover {
-    box-shadow: 0 2px 16px #ee9803ae;
-    transform: scale(1.05);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-  }
+  box-shadow: 0 2px 16px rgba(255, 69, 0, 0.5);
+  transform: scale(1.05);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
 .pizza-item h3 {
-    font-size: 20px;
-    color: #000000;
+  font-size: 20px;
+  color: #E65100;
+  font-family: 'Pacifico', cursive;
 }
 
 .pizza-item p {
-    font-size: 18px;
-    color: #000000;
+  font-size: 18px;
+  color: #BF360C;
 }
 
 /* Styles for the pizza description div */
@@ -51,125 +64,114 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-   
-  /* background-color: #FFFFFF;
-    border-radius: 10px;
-    margin-top: 20px;
-    padding: 20px;
-    width: 250px;
-    height: 500px;
-     */
-  }
+}
+
 .description {
   width: 661px;
   height: 500px;
-
 }
-.description__pizza-desc {
-    margin: 20px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f8f8f8;
-  }
-  
-  .description__pizza-desc h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  .description__pizza-desc p {
-    font-size: 18px;
-    margin: 10px 0;
-  }
-  
-  .description__pizza-desc .description__price {
-    color:hsl(122, 100%, 40%);
-    font-weight: bold;
-  }
-  .pizza-button {
-    background-color: #2f2f2f;
-    border-radius: 8%;
-  }
-  /* Styles for the ingredients div */
-  .description__ingredients {
-    margin: 20px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f8f8f8;
-  }
-  
-  .description__ingredients h3 {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  .description__ingredients ul {
-    list-style-type: none;
-    margin: 10px 0;
-    padding: 0;
-  }
-  
-  .description__ingredients li {
-    font-size: 16px;
-    margin-bottom: 5px;
-  }
-  
-  /* Styles for the image div */
-  .description__img {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-  }
-  
-  .description__img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  /* advertisement div  */
-  .advertisement-div {
-    width: 635px;
-    height: 150px;
-    background-color: #2f2f2f;
-    padding: 16px;
-    margin-top: 565px;
-    border-radius: 10px;
-    position: absolute;
-    display: flex;
-  }
-  
-  .advertisement-title {
-    font-size: 24px;
-    margin-bottom: 8px;
-    color: white;
-  }
-  
-  .advertisement-paragraph {
-    font-size: 16px;
-    margin-bottom: 16px;
-    color: white;
 
-  }
-  
-  button {
-    background-color: orange;
-    color: white;
-    padding: 8px 16px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  img {
-  
-    width: 170px;
-  }
-.hover-effect{
-  box-shadow: 0 2px 16px rgba(3, 238, 3, 0.683);
+.description__pizza-desc {
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #FFF3E0;
+}
+
+.description__pizza-desc h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #E65100;
+  font-family: 'Pacifico', cursive;
+  margin-bottom: 1em;
+}
+
+.description__pizza-desc p {
+  font-size: 18px;
+  color: #BF360C;
+}
+
+.description__pizza-desc .description__price {
+  color: hsl(122, 100%, 40%);
+  font-weight: bold;
+}
+
+.pizza-button {
+  background-color: #FF5722;
+  border-radius: 8%;
+}
+
+/* Styles for the ingredients div */
+.description__ingredients {
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.description__ingredients h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #E65100;
+  font-family: 'Pacifico', cursive;
+  margin: 0;
+}
+
+.description__ingredients ul {
+  list-style-type: none;
+  margin: 10px 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.description__ingredients li {
+  font-size: 16px;
+  padding: 5px 10px;
+  background-color: #FFE0B2;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the image div */
+.description__img {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 2px solid #FFA500; /* add a border with an orange color */
+  box-shadow: inset;
+}
+
+
+
+.description__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(202, 1, 1, 1); /* add a box-shadow */
+}
+
+
+button {
+  background-color: orange;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+}
+
+img {
+  width: 170px;
+}
+
+.hover-effect {
+  box-shadow: 0 2px 16px rgba(0, 175, 0, 0.683);
   transform: scale(1.05);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
@@ -228,5 +230,44 @@
   background-color: #ccc;
 }
 
+.filter-div :first-child {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border: 5px solid #23c636;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
 
-  
+.filter-div :first-child h2 {
+  margin-top: 0;
+  font-size: 28px;
+  color: #CC1C3F;
+  text-transform: uppercase;
+}
+
+.filter-div :first-child p {
+  margin-bottom: 0;
+  font-size: 18px;
+  color: #333;
+} */
+
+.filter-div :first-child button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #CC1C3F;
+  color: #FFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.filter-div :first-child button:hover {
+  background-color: #eb8518;
+  color: #000000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}

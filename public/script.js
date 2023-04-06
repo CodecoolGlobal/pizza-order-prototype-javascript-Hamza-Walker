@@ -1,4 +1,4 @@
-import { createFirstDivElements , createSecondDivElements, advertisementDiv,createAllergensFilter } from "./helpScript.js";
+import { createFirstDivElements , createSecondDivElements,createAllergensFilter } from "./helpScript.js";
 import { fetchJsonObjects } from "./fetchJson.js";
 export const rootDiv = document.getElementById("root");
 export const firstDiv = document.createElement("div");
@@ -25,9 +25,9 @@ const createSecondDiv = ({ pizzaData }) => {
     secondDiv.classList.add("second-container")    
 
     const descriptionDivs = createSecondDivElements(pizzaData);
-    const advertisementDivs = advertisementDiv(pizzaData)
+   // const advertisementDivs = advertisementDiv(pizzaData)
     secondDiv.appendChild(descriptionDivs)
-    secondDiv.appendChild(advertisementDivs)
+    //secondDiv.appendChild(advertisementDivs)
 
     rootDiv.appendChild(secondDiv)
 }
