@@ -1,7 +1,9 @@
-import { firstDiv, secondDiv, thirdDiv} from "./script.js";
+import { firstDiv, secondDiv, thirdDiv , totalPriceDisplay} from "./script.js";
 export let selectedElement = null;
+export let orders = []
 let pizzaDivs; 
-
+let checkOutPrice; 
+export let popForm = createPopUpForm ()
 export const createFirstDivElements = (pizzaData, allergensData) => {
   // Assign the pizza divs to the `pizzaDivs` variable declared outside the function
     pizzaDivs = pizzaData.map(pizza => {
@@ -28,7 +30,7 @@ export const createFirstDivElements = (pizzaData, allergensData) => {
     // Add click event listener to the pizza div
     pizzaDiv.addEventListener('click', () => {
       selectedElement = pizza;
-      console.log('Selected pizza:', selectedElement);
+      // console.log('Selected pizza:', selectedElement);
       const existingDescriptionDiv = document.querySelector('.description');
       if (existingDescriptionDiv) {
         existingDescriptionDiv.remove();
@@ -75,7 +77,7 @@ allergenCheckboxes.addEventListener('change', () => {
   const checkedAllergens = Array.from(
     allergenCheckboxes.querySelectorAll('input:checked')
   ).map((checkbox) => checkbox.dataset.allergenId);
-    console.log(allergenCheckboxes)
+    // console.log(allergenCheckboxes)
 
   pizzaDivs.forEach((pizzaDiv) => {
     const pizzaName = pizzaDiv.classList[1]; // Assumes the second class in the classList contains the pizza name
@@ -85,7 +87,7 @@ allergenCheckboxes.addEventListener('change', () => {
 
     const pizzaAllergens = allergensData.filter(allergen => pizza.allergens.includes(allergen.id));
 
-    console.log(pizzaAllergens)
+    // console.log(pizzaAllergens)
 
     const hasAllCheckedAllergens = checkedAllergens.every(checkedAllergen => !pizzaAllergens.find(allergen => allergen.id === checkedAllergen));
 
@@ -171,7 +173,7 @@ ingredientsDiv.appendChild(ingredientsList);
 descriptionDiv.appendChild(imgDiv);
 descriptionDiv.appendChild(pizzaDescDiv);
 descriptionDiv.appendChild(ingredientsDiv);
-console.log(secondDiv)
+// console.log(secondDiv)
 
 secondDiv.appendChild(descriptionDiv)
 return descriptionDiv;
@@ -198,64 +200,107 @@ advertisementDiv.appendChild(buttonElement);
 const imageElement = document.createElement('img');
 imageElement.src = 'pizzaAdd.png';
 advertisementDiv.appendChild(imageElement);
-console.log(secondDiv)
+// console.log(secondDiv)
 secondDiv.appendChild(advertisementDiv);
     return advertisementDiv
 }
 
 export const createthirdDivElements = (pizza) =>{
 
-function createOrderDiv(pizza) {
-    const orderDiv = document.createElement('div');
-    orderDiv.classList.add('order');
+  function createOrderDiv(pizza) {
+      // let checkOutPrice;
+      const orderDiv = document.createElement('div');
+      orderDiv.classList.add('order');
 
-    const nameDiv = document.createElement('div');
-    nameDiv.classList.add('order-name');
-    nameDiv.textContent = pizza.name;
-  
-    const priceDiv = document.createElement('div');
-    priceDiv.classList.add('order-price');
-    priceDiv.textContent = '$' + pizza.price.toFixed(2);
+      const nameDiv = document.createElement('div');
+      nameDiv.classList.add('order-name');
+      nameDiv.textContent = pizza.name;
+    
+      const priceDiv = document.createElement('div');
+      priceDiv.classList.add('order-price');
+      priceDiv.textContent = '$' + pizza.price.toFixed(2);
 
-  
-    const plusButton = document.createElement('button');
-    plusButton.classList.add('plus-button');
-    plusButton.textContent = '+';
-    plusButton.addEventListener('click', () => {
-      if (!pizza.quantity){
-        pizza.quantity = 1;
-      }
-      else {
-        pizza.quantity++;
-      }
-      quantityDiv.textContent = pizza.quantity;
-      priceDiv.textContent = '$' + (pizza.price * pizza.quantity).toFixed(2);
-    });
-  
-  
-    const minusButton = document.createElement('button');
-    minusButton.classList.add('minus-button');
-    minusButton.textContent = '-';
-    minusButton.addEventListener('click', () => {
-      if (pizza.quantity > 1) {
-        pizza.quantity--;
+    
+      const plusButton = document.createElement('button');
+      plusButton.classList.add('plus-button');
+      plusButton.textContent = '+';
+      plusButton.addEventListener('click', () => {
+        if (!pizza.quantity) {
+          pizza.quantity = 1;
+        } else {
+          pizza.quantity++;
+        }
+
+        if (!orders.find(order => order.id === pizza.id)){
+          orders.push(pizza)
+        }
+
         quantityDiv.textContent = pizza.quantity;
-        priceDiv.textContent = '$' + (pizza.price * pizza.quantity).toFixed(2);
-      }
-    });
-  
-    const quantityDiv = document.createElement('div');
-    quantityDiv.classList.add('order-quantity');
-    quantityDiv.textContent = pizza.quantity;
-  
-    orderDiv.appendChild(nameDiv);
-    orderDiv.appendChild(priceDiv);
-    orderDiv.appendChild(quantityDiv);
-    orderDiv.appendChild(plusButton);
-    orderDiv.appendChild(minusButton);
-    thirdDiv.appendChild(orderDiv)
-    return orderDiv;
+         checkOutPrice = (pizza.price * pizza.quantity).toFixed(2);
+        priceDiv.textContent = '$' + checkOutPrice;
+      
+        // const orderIndex = orders.findIndex(order => order.name === pizza.name);
+        
+        // totalPriceDisplay.textContent = ""
+        totalPriceDisplay.textContent = orders.reduce((totalPrice, order) => {
+          return totalPrice + order.price * order.quantity
+        },0).toFixed(2)
 
+        // console.log(orders);
+      });
+      
+      
+    
+    
+      const minusButton = document.createElement('button');
+      minusButton.classList.add('minus-button');
+      minusButton.textContent = '-';
+      minusButton.addEventListener('click', () => {
+        if (!pizza.quantity) {
+          pizza.quantity = 1;
+        } else {
+          pizza.quantity--;
+        }
+        quantityDiv.textContent = pizza.quantity;
+      
+        checkOutPrice =  (pizza.price * pizza.quantity).toFixed(2);
+        priceDiv.textContent = '$' + checkOutPrice;
+      
+        // totalPriceDisplay.textContent = ""
+        totalPriceDisplay.textContent = orders.reduce((totalPrice, order) => {
+          return totalPrice + order.price * order.quantity
+        },0).toFixed(2)
+
+      });
+
+      // change the total price display 
+      const quantityDiv = document.createElement('div');
+      quantityDiv.classList.add('order-quantity');
+      quantityDiv.textContent = pizza.quantity;
+    
+      orderDiv.appendChild(nameDiv);
+      orderDiv.appendChild(priceDiv);
+      orderDiv.appendChild(quantityDiv);
+      orderDiv.appendChild(plusButton);
+      orderDiv.appendChild(minusButton);
+      thirdDiv.appendChild(orderDiv)
+      // return orderDiv;
+
+  }
+  createOrderDiv(pizza)
+
+
+  
+ 
 }
- createOrderDiv(pizza)
+
+function createPopUpForm (){
+  const container = document.createElement("div")
+  container.classList.add("popup-modal")
+  container.hidden = true
+  document.body.appendChild(container)
+  
+  return container
 }
+createPopUpForm ()
+  
