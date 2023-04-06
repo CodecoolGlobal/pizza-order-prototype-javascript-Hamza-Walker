@@ -282,4 +282,10 @@ img {
   background-color: #ffffff;
   box-shadow: 0 0 5px 0 #000000;
   border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+
 }

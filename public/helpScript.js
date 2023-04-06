@@ -147,6 +147,7 @@ export const createSecondDivElements = (pizzaObject) => {
   
     pizzaButton.classList.add("pizza-button")
     pizzaButton.addEventListener('click', function() {
+
       createthirdDivElements(selectedElement)
     });
     container.appendChild(pizzaButton);
@@ -181,35 +182,14 @@ secondDiv.appendChild(descriptionDiv)
 return descriptionDiv;
 };
 
-// export const advertisementDiv = () => {
-// const advertisementDiv = document.createElement('div');
-// advertisementDiv.classList.add('advertisement-div');
 
-// const titleElement = document.createElement('h3');
-// titleElement.classList.add('advertisement-title');
-// titleElement.textContent = 'Advertisement Title';
-// advertisementDiv.appendChild(titleElement);
-
-// const paragraphElement = document.createElement('p');
-// paragraphElement.classList.add('advertisement-paragraph');
-// paragraphElement.textContent = 'This is a sample advertisement.';
-// advertisementDiv.appendChild(paragraphElement);
-
-// const buttonElement = document.createElement('button');
-// buttonElement.textContent = 'Click me';
-// advertisementDiv.appendChild(buttonElement);
-
-// const imageElement = document.createElement('img');
-// imageElement.src = 'pizzaAdd.png';
-// advertisementDiv.appendChild(imageElement);
-// console.log(secondDiv)
-// secondDiv.appendChild(advertisementDiv);
-//     return advertisementDiv
-// }
 
 export const createthirdDivElements = (pizza) =>{
 
   function createOrderDiv(pizza) {
+    
+    orders.push(pizza)
+
       // let checkOutPrice;
       const orderDiv = document.createElement('div');
       orderDiv.classList.add('order');
@@ -289,20 +269,99 @@ export const createthirdDivElements = (pizza) =>{
       // return orderDiv;
 
   }
-  createOrderDiv(pizza)
 
 
-  
+  if (!orders.find(order => order.name === pizza.name)){
+    createOrderDiv(pizza)
+  }
  
 }
 
 function createPopUpForm (){
-  const container = document.createElement("div")
-  container.classList.add("popup-modal")
-  container.hidden = true
-  document.body.appendChild(container)
+  const containerBody = document.createElement("div")
+  containerBody.classList.add("popup-modal")
+  containerBody.hidden = true
+  document.body.appendChild(containerBody)
   
-  return container
+  function createOrderForm() {
+
+    // Add a title to the container
+    const title = document.createElement('h2');
+    title.textContent = 'Pizza Order Form';
+    containerBody.appendChild(title);
+  
+    // Create the form element
+    const form = document.createElement('form');
+    form.classList.add("form")
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // prevent page reload on form submission
+      // Handle form submission here
+    });
+  
+    // Create the name input field
+    const nameLabel = document.createElement('label');
+    nameLabel.textContent = 'Name:';
+    const nameInput = document.createElement('input');
+    nameInput.type = 'text';
+    nameInput.name = 'name';
+    form.appendChild(nameLabel);
+    form.appendChild(nameInput);
+  
+    // Create the email input field
+    const emailLabel = document.createElement('label');
+    emailLabel.textContent = 'Email:';
+    const emailInput = document.createElement('input');
+    emailInput.type = 'email';
+    emailInput.name = 'email';
+    form.appendChild(emailLabel);
+    form.appendChild(emailInput);
+  
+    // Create the phone number input field
+    const phoneLabel = document.createElement('label');
+    phoneLabel.textContent = 'Phone number:';
+    const phoneInput = document.createElement('input');
+    phoneInput.type = 'tel';
+    phoneInput.name = 'phone';
+    form.appendChild(phoneLabel);
+    form.appendChild(phoneInput);
+  
+    // Create the address input field
+    const addressLabel = document.createElement('label');
+    addressLabel.textContent = 'Address:';
+    const addressInput = document.createElement('input');
+    addressInput.type = 'text';
+    addressInput.name = 'address';
+    form.appendChild(addressLabel);
+    form.appendChild(addressInput);
+  
+    // Create the submit button
+    const submitButton = document.createElement('button');
+    submitButton.type = 'submit';
+    submitButton.textContent = 'Submit';
+    form.appendChild(submitButton);
+    submitButton.onclick = () => sendOrdersToServer()
+    submitButton.onclick = () => popForm.hidden = true
+    // checkOutButton.onclick = () => console.log("hi")
+    // Add the form to the container
+ 
+  
+    // Add the container to the document
+    containerBody.appendChild(form);
+  }
+  createOrderForm()
+  return containerBody
 }
 createPopUpForm ()
   
+const sendOrdersToServer = () => {
+  fetch('/api/orders', {
+      method: 'POST',
+      body: JSON.stringify({orders}),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+  })
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+};
