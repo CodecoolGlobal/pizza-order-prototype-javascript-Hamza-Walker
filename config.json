@@ -8,8 +8,7 @@
 			"pizza": "data/pizza.json",
 			"allergens": "data/allergens.json",
 			"ingredients": "data/ingredients.json",
-			"orders": "data/orders.json",
-			"customers": "data/customers.json"
+			"orders": "data/orders.json"
 		}
 	}
 }
