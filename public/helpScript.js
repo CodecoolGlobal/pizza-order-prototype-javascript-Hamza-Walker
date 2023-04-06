@@ -1,9 +1,15 @@
-import { firstDiv, secondDiv, thirdDiv , totalPriceDisplay} from "./script.js";
+import { secondDiv, thirdDiv } from "./script.js";
 export let selectedElement = null;
 export let orders = []
+const totalPriceDisplay = document.createElement("div")
+let popForm = createPopUpForm();
 let pizzaDivs; 
 let checkOutPrice; 
-export let popForm = createPopUpForm ()
+let customerInfo = {};
+
+
+
+
 export const createFirstDivElements = (pizzaData, allergensData) => {
   // Assign the pizza divs to the `pizzaDivs` variable declared outside the function
     pizzaDivs = pizzaData.map(pizza => {
@@ -48,64 +54,6 @@ export const createFirstDivElements = (pizzaData, allergensData) => {
   
   return pizzaDivs;
 };
-
-export const createAllergensFilter = (pizzaData, allergensData) => {
-  const mainDiv = document.createElement('div');
-  const allergenCheckboxes = document.createElement('div');
-
-  mainDiv.classList.add("filter-div");
-
-  allergenCheckboxes.appendChild(document.createTextNode('Allergens: '));
-
-  allergensData.forEach((allergen) => {
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.id = `allergen-${allergen.id}`;
-    checkbox.dataset.allergenId = allergen.id;
-
-    const label = document.createElement('label');
-    label.htmlFor = `allergen-${allergen.id}`;
-    label.textContent = allergen.name;
-
-    allergenCheckboxes.appendChild(checkbox);
-    allergenCheckboxes.appendChild(label);
-  });
-
-  mainDiv.appendChild(allergenCheckboxes);
-
-
-// Add event listener to the allergen checkboxes
-allergenCheckboxes.addEventListener('change', () => {
-  const checkedAllergens = Array.from(
-    allergenCheckboxes.querySelectorAll('input:checked')
-  ).map((checkbox) => checkbox.dataset.allergenId);
-    // console.log(allergenCheckboxes)
-
-  pizzaDivs.forEach((pizzaDiv) => {
-    const pizzaName = pizzaDiv.classList[1]; // Assumes the second class in the classList contains the pizza name
-
-    // Get the corresponding pizza object
-    const pizza = pizzaData.find(p => p.name.toLowerCase().replace(/\s+/g, '-') === pizzaName);
-
-    const pizzaAllergens = allergensData.filter(allergen => pizza.allergens.includes(allergen.id));
-
-    // console.log(pizzaAllergens)
-
-    const hasAllCheckedAllergens = checkedAllergens.every(checkedAllergen => !pizzaAllergens.find(allergen => allergen.id === checkedAllergen));
-
-    if (hasAllCheckedAllergens) {
-      pizzaDiv.classList.add('hover-effect');
-    } else {
-      pizzaDiv.classList.remove('hover-effect');
-    }
-  });
-});
-
-  
-  thirdDiv.appendChild(mainDiv)
-  return mainDiv;
-};
-
 export const createSecondDivElements = (pizzaObject) => {
   const selectedElementPizza = selectedElement || pizzaObject[0];
 
@@ -139,22 +87,15 @@ export const createSecondDivElements = (pizzaObject) => {
   pizzaDescDiv.appendChild(pizzaPrice);
   pizzaDescDiv.appendChild(pizzaDescription);
 
-  function createOrderPizzaButton() {
-    var container = document.createElement("div");
-    var pizzaButton = document.createElement("button");
   
-    pizzaButton.innerHTML = "🔥 Into The Oven 🔥";
+  const intoTheOvenDiv = document.createElement("div");
+  const intoTheOvenButton = document.createElement("button");
+  intoTheOvenButton.textContent = "🔥 Into The Oven 🔥";
+  intoTheOvenButton.classList.add("pizza-button")
+  intoTheOvenButton.onclick = () => createthirdDivElements(selectedElement)
+  intoTheOvenDiv.appendChild(intoTheOvenButton);
   
-    pizzaButton.classList.add("pizza-button")
-    pizzaButton.addEventListener('click', function() {
-
-      createthirdDivElements(selectedElement)
-    });
-    container.appendChild(pizzaButton);
-    return container;
-  }
-  const intoTheOven = createOrderPizzaButton()
-  pizzaDescDiv.appendChild(intoTheOven);
+  pizzaDescDiv.appendChild(intoTheOvenDiv);
 
   const ingredientsDiv = document.createElement('div');
   ingredientsDiv.classList.add('description__ingredients');
@@ -168,29 +109,24 @@ export const createSecondDivElements = (pizzaObject) => {
     const ingredientItem = document.createElement('li');
     ingredientItem.textContent = ingredient.name;
     ingredientsList.appendChild(ingredientItem);
-});
+  });
 
-ingredientsDiv.appendChild(ingredientsTitle);
-ingredientsDiv.appendChild(ingredientsList);
+  ingredientsDiv.appendChild(ingredientsTitle);
+  ingredientsDiv.appendChild(ingredientsList);
 
-descriptionDiv.appendChild(imgDiv);
-descriptionDiv.appendChild(pizzaDescDiv);
-descriptionDiv.appendChild(ingredientsDiv);
-// console.log(secondDiv)
+  descriptionDiv.appendChild(imgDiv);
+  descriptionDiv.appendChild(pizzaDescDiv);
+  descriptionDiv.appendChild(ingredientsDiv);
 
-secondDiv.appendChild(descriptionDiv)
-return descriptionDiv;
+  secondDiv.appendChild(descriptionDiv)  // is appended twice the first time with pizaData[0]  then with selectedDiv  
+  return descriptionDiv;
 };
+export const createthirdDivElements = (pizza) => {
 
-
-
-export const createthirdDivElements = (pizza) =>{
-
-  function createOrderDiv(pizza) {
+  const createOrderDivAndElements = (pizza) => {
     
-    orders.push(pizza)
+      orders.push(pizza) // this is done to insure no repetative entries
 
-      // let checkOutPrice;
       const orderDiv = document.createElement('div');
       orderDiv.classList.add('order');
 
@@ -218,37 +154,28 @@ export const createthirdDivElements = (pizza) =>{
         }
 
         quantityDiv.textContent = pizza.quantity;
-         checkOutPrice = (pizza.price * pizza.quantity).toFixed(2);
+        checkOutPrice = (pizza.price * pizza.quantity).toFixed(2);
         priceDiv.textContent = '$' + checkOutPrice;
-      
-        // const orderIndex = orders.findIndex(order => order.name === pizza.name);
-        
-        // totalPriceDisplay.textContent = ""
         totalPriceDisplay.textContent = orders.reduce((totalPrice, order) => {
           return totalPrice + order.price * order.quantity
         },0).toFixed(2)
-
-        // console.log(orders);
       });
       
-      
-    
-    
       const minusButton = document.createElement('button');
       minusButton.classList.add('minus-button');
       minusButton.textContent = '-';
       minusButton.addEventListener('click', () => {
+       
         if (!pizza.quantity) {
           pizza.quantity = 1;
         } else {
           pizza.quantity--;
         }
+
         quantityDiv.textContent = pizza.quantity;
-      
         checkOutPrice =  (pizza.price * pizza.quantity).toFixed(2);
         priceDiv.textContent = '$' + checkOutPrice;
-      
-        // totalPriceDisplay.textContent = ""
+       
         totalPriceDisplay.textContent = orders.reduce((totalPrice, order) => {
           return totalPrice + order.price * order.quantity
         },0).toFixed(2)
@@ -265,18 +192,95 @@ export const createthirdDivElements = (pizza) =>{
       orderDiv.appendChild(quantityDiv);
       orderDiv.appendChild(plusButton);
       orderDiv.appendChild(minusButton);
-      thirdDiv.appendChild(orderDiv)
-      // return orderDiv;
-
+      thirdDiv.appendChild(orderDiv);
   }
-
-
+  // check if a pizza order dev is already created
   if (!orders.find(order => order.name === pizza.name)){
-    createOrderDiv(pizza)
+    createOrderDivAndElements(pizza)
   }
- 
 }
 
+
+
+export const createAllergensFilter = (pizzaData, allergensData) => {
+
+  const mainDiv = document.createElement('div');
+  mainDiv.classList.add("filter-div");
+
+  const allergenCheckboxes = document.createElement('div');
+  allergenCheckboxes.appendChild(document.createTextNode('Allergens: '));
+
+
+  // Loop through the allergens data and create a checkbox and label for each allergen
+  allergensData.forEach(allergen => {
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.id = `allergen-${allergen.id}`;
+    checkbox.dataset.allergenId = allergen.id;
+
+    const label = document.createElement('label');
+    label.htmlFor = `allergen-${allergen.id}`;
+    label.textContent = allergen.name;
+
+    allergenCheckboxes.appendChild(checkbox);
+    allergenCheckboxes.appendChild(label);
+  });
+
+  mainDiv.appendChild(allergenCheckboxes);
+
+  // Add an event listener to the allergen checkboxes
+  allergenCheckboxes.addEventListener('change', () => {
+    // Get an array of the IDs of all checked allergen checkboxes
+    const checkedAllergens = Array.from(
+      allergenCheckboxes.querySelectorAll('input:checked')
+    ).map(checkbox => checkbox.dataset.allergenId);
+
+    // Loop through each pizza div and check if it has all the checked allergens
+    pizzaDivs.forEach(pizzaDiv => {
+      const pizzaName = pizzaDiv.classList[1]; //the second class in the classList contains the pizza name
+
+      // Get the corresponding pizza object
+      const pizza = pizzaData.find(p => p.name.toLowerCase().replace(/\s+/g, '-') === pizzaName);
+
+      // Get an array of allergen objects that the pizza has
+      const pizzaAllergens = allergensData.filter(allergen => pizza.allergens.includes(allergen.id));
+
+      // Check if the pizza has all the checked allergens
+      const hasAllCheckedAllergens = checkedAllergens.every(checkedAllergen => !pizzaAllergens.find(allergen => allergen.id === checkedAllergen));
+
+      // Add or remove a hover effect class depending on whether the pizza has all the checked allergens
+      if (hasAllCheckedAllergens) {
+        pizzaDiv.classList.add('hover-effect');
+      } else {
+        pizzaDiv.classList.remove('hover-effect');
+      }
+    });
+  });
+
+  // Add the main div to the page and return it
+  thirdDiv.appendChild(mainDiv);
+  return mainDiv;
+};
+export const createCheckoutDivs = (orders)=> {
+
+  console.log(orders)
+  const checkOutDiv = document.createElement("div");
+  checkOutDiv.classList.add("checkout-div")
+
+  totalPriceDisplay.classList.add("checkout-price")
+  totalPriceDisplay.textContent = 0
+
+  const checkOutButton = document.createElement("button");
+  checkOutButton.onclick = () => popForm.hidden = false
+  checkOutButton.classList.add("checkout-button")
+  checkOutButton.textContent = "CheckOut"
+
+  checkOutDiv.appendChild(totalPriceDisplay)
+  checkOutDiv.appendChild(checkOutButton)
+
+  thirdDiv.appendChild(checkOutDiv)
+
+};
 function createPopUpForm (){
   const containerBody = document.createElement("div")
   containerBody.classList.add("popup-modal")
@@ -285,20 +289,22 @@ function createPopUpForm (){
   
   function createOrderForm() {
 
-    // Add a title to the container
     const title = document.createElement('h2');
+    title.classList.add("title-form")
     title.textContent = 'Pizza Order Form';
     containerBody.appendChild(title);
   
-    // Create the form element
     const form = document.createElement('form');
     form.classList.add("form")
     form.addEventListener('submit', function(event) {
       event.preventDefault(); // prevent page reload on form submission
-      // Handle form submission here
+      customerInfo.name = nameInput.value;
+      customerInfo.email = emailInput.value;
+      customerInfo.phone = phoneInput.value;
+      customerInfo.address = addressInput.value;
+      console.log(customerInfo);
     });
   
-    // Create the name input field
     const nameLabel = document.createElement('label');
     nameLabel.textContent = 'Name:';
     const nameInput = document.createElement('input');
@@ -307,7 +313,6 @@ function createPopUpForm (){
     form.appendChild(nameLabel);
     form.appendChild(nameInput);
   
-    // Create the email input field
     const emailLabel = document.createElement('label');
     emailLabel.textContent = 'Email:';
     const emailInput = document.createElement('input');
@@ -316,7 +321,6 @@ function createPopUpForm (){
     form.appendChild(emailLabel);
     form.appendChild(emailInput);
   
-    // Create the phone number input field
     const phoneLabel = document.createElement('label');
     phoneLabel.textContent = 'Phone number:';
     const phoneInput = document.createElement('input');
@@ -325,7 +329,6 @@ function createPopUpForm (){
     form.appendChild(phoneLabel);
     form.appendChild(phoneInput);
   
-    // Create the address input field
     const addressLabel = document.createElement('label');
     addressLabel.textContent = 'Address:';
     const addressInput = document.createElement('input');
@@ -334,29 +337,26 @@ function createPopUpForm (){
     form.appendChild(addressLabel);
     form.appendChild(addressInput);
   
-    // Create the submit button
     const submitButton = document.createElement('button');
+    submitButton.classList.add("submit-button")
     submitButton.type = 'submit';
     submitButton.textContent = 'Submit';
     form.appendChild(submitButton);
     submitButton.onclick = () => sendOrdersToServer()
     submitButton.onclick = () => popForm.hidden = true
-    // checkOutButton.onclick = () => console.log("hi")
-    // Add the form to the container
  
   
-    // Add the container to the document
     containerBody.appendChild(form);
   }
   createOrderForm()
   return containerBody
-}
+};
 createPopUpForm ()
   
 const sendOrdersToServer = () => {
   fetch('/api/orders', {
       method: 'POST',
-      body: JSON.stringify({orders}),
+      body: JSON.stringify({orders,customerInfo}),
       headers: {
         'Content-Type': 'application/json'
       }
