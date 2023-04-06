@@ -1,14 +1,17 @@
 import { Router } from "express"
-import { all, get, create, update, remove } from "../database.js"
+import { get, getItem, create, update, remove } from "../database.js"
 
 export default function dataBaseRouter(
 	dataKey,
-	{ validation, transformOnSend } = { validation: null, transformOnSend: null }
+	{ validation, transformOnSend } = {
+		validation: null,
+		transformOnSend: null
+	}
 ) {
 	const path = `/${dataKey}`
 	const pathWithParams = `/${dataKey}/:id`
 
-	transformOnSend ??= (item) => item
+	transformOnSend ??= item => item
 	validation = {
 		...{
 			post: (req, res, next) => {
@@ -35,10 +38,10 @@ export default function dataBaseRouter(
 	return route
 
 	function sendTable(req, res) {
-		res.json(all(dataKey).map(transformOnSend))
+		res.json(get(dataKey).map(transformOnSend))
 	}
 	function sendItem(req, res) {
-		const item = get(dataKey, req.params.id)
+		const item = getItem(dataKey, req.params.id)
 		res.json(transformOnSend(item))
 	}
 	function createItem(req, res) {

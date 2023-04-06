@@ -2,8 +2,11 @@
 	"public": {
 		"path": "public"
 	},
+	"server": {
+		"allowed": ["http://127.0.0.1:5500", "http://localhost:5500"],
+		"port": 9000
+	},
 	"api": {
-		"port": 9000,
 		"dataPath": {
 			"pizza": "data/pizza.json",
 			"allergens": "data/allergens.json",

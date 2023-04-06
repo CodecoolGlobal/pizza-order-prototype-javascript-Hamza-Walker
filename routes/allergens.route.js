@@ -1,6 +1,6 @@
 import { get } from "../app/database.js"
 import dataBaseRouter from "../app/middleware/dataRouting.js"
-import { uuidValidator } from "../app/middleware/validators.js"
+import { isUuidValidator } from "../app/middleware/validators.js"
 
 export default dataBaseRouter("allergens", {
 	validation: {
@@ -14,10 +14,10 @@ function postValidator(req, res, next) {
 	next()
 }
 function putValidator(req, res, next) {
-	uuidValidator(req.params.id)
+	isUuidValidator(req.params.id)
 	next()
 }
 function deleteValidator(req, res, next) {
-	uuidValidator(req.params.id)
+	isUuidValidator(req.params.id)
 	next()
 }
