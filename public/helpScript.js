@@ -1,4 +1,4 @@
-import { secondDiv, thirdDiv} from "./script.js";
+import { firstDiv, secondDiv, thirdDiv} from "./script.js";
 export let selectedElement = null;
 let pizzaDivs; 
 
@@ -35,12 +35,14 @@ let pizzaDivs;
 //   });
 //   return pizzaDivs;
 // };
+
+
 export const createFirstDivElements = (pizzaData, allergensData) => {
+  // Assign the pizza divs to the `pizzaDivs` variable declared outside the function
     pizzaDivs = pizzaData.map(pizza => {
     const pizzaDiv = document.createElement("div");
     pizzaDiv.classList.add('pizza-item');
     pizzaDiv.classList.add(pizza.name.toLowerCase().replace(/\s+/g, '-'));
-
 
     const pizzaName = document.createElement("h3");
     pizzaName.textContent = pizza.name;
@@ -51,7 +53,7 @@ export const createFirstDivElements = (pizzaData, allergensData) => {
     pizzaDiv.appendChild(pizzaPrice);
 
     // Check for allergens and add class to pizza div if it contains allergens
-    const pizzaAllergens = allergensData.filter(allergen => pizza.ingredients.includes(allergen.name));
+    const pizzaAllergens = allergensData.filter(allergen => pizza.allergens.includes(allergen.id));
     if (pizzaAllergens.length > 0) {
       pizzaDiv.classList.add("has-allergens");
     }
@@ -73,19 +75,15 @@ export const createFirstDivElements = (pizzaData, allergensData) => {
 
     return pizzaDiv;
   });
+  // pizzaDivs.forEach(div => { firstDiv.appendChild(div)})
+  
   return pizzaDivs;
 };
 
 export const createAllergensFilter = (pizzaData, allergensData) => {
-  
-  console.log(pizzaDivs[0].classList[1])
-  
-  
-  
-  
   const mainDiv = document.createElement('div');
   const allergenCheckboxes = document.createElement('div');
-  
+
   allergenCheckboxes.appendChild(document.createTextNode('Allergens: '));
 
   allergensData.forEach((allergen) => {
@@ -101,19 +99,41 @@ export const createAllergensFilter = (pizzaData, allergensData) => {
     allergenCheckboxes.appendChild(checkbox);
     allergenCheckboxes.appendChild(label);
   });
-  
+
   mainDiv.appendChild(allergenCheckboxes);
-  // mainDiv.appendChild(pizzaDivs);
-  
+
+
+  // Add event listener to the allergen checkboxes
   allergenCheckboxes.addEventListener('change', () => {
     const checkedAllergens = Array.from(
       allergenCheckboxes.querySelectorAll('input:checked')
     ).map((checkbox) => checkbox.dataset.allergenId);
-  
+      console.log(allergenCheckboxes)
+
+    // checkedAllergens.forEach(allergin => {
+    //   pizzaDivs.forEach(pizzaDiv => {
+    //     const pizzaName = pizzaDiv.classList[1];
+    //     const matchDivIfAllergenInPizza = pizzaName.map(name => pizzaData.forEach(piza => {
+    //       if(piza.allergens.includes(allergin)){
+    //         return piza.name
+    //       }
+           
+    //     }))
+    //     return pizzaDiv
+    //   })
+    // })
+    // Loop through the pizza divs and apply the hover effect to those that contain unchecked allergens
     pizzaDivs.forEach((pizzaDiv) => {
-      const pizzaName = pizzaDiv.classList[1]; // Assumes the first class in the classList contains the pizza name
-      const pizzaAllergens = allergensData.filter(allergen => pizzaIngredients[pizzaName].includes(allergen.name));
-  
+      const pizzaName = pizzaDiv.classList[1]; // Assumes the second class in the classList contains the pizza name
+
+      const pizzaAllergens = allergensData.filter(allergen => pizzaData.forEach(piza => {
+        // console.log(piza)
+        return piza.allergens.includes(allergen.id)
+      })
+      );
+      console.log(pizzaAllergens)
+
+
       pizzaAllergens.forEach((allergen) => {
         if (!checkedAllergens.includes(allergen.id)) {
           pizzaDiv.classList.add('hover-effect');
@@ -170,6 +190,29 @@ export const createSecondDivElements = (pizzaObject) => {
   pizzaDescDiv.appendChild(pizzaName);
   pizzaDescDiv.appendChild(pizzaPrice);
   pizzaDescDiv.appendChild(pizzaDescription);
+
+  function createOrderPizzaButton() {
+    // create div element
+    var container = document.createElement("div");
+    // create button element
+    var pizzaButton = document.createElement("button");
+  
+    // set button text
+    pizzaButton.innerHTML = "🔥 Into The Oven 🔥";
+  
+    // set button class
+    pizzaButton.classList.add("pizza-button")
+    pizzaButton.addEventListener('click', function() {
+      // intoTheOven(selectedElement)
+      createthirdDivElements(selectedElement)
+    });
+    // add button to div
+    container.appendChild(pizzaButton);
+    // return div
+    return container;
+  }
+  const intoTheOven = createOrderPizzaButton()
+  pizzaDescDiv.appendChild(intoTheOven);
 
   // create ingredients div
   const ingredientsDiv = document.createElement('div');
@@ -235,7 +278,61 @@ secondDiv.appendChild(advertisementDiv);
     return advertisementDiv
 }
 
+export const createthirdDivElements = (pizza) =>{
 
+function createOrderDiv(pizza) {
+    // Create the outer div
+    const orderDiv = document.createElement('div');
+    orderDiv.classList.add('order');
+  
+    // Create the name and price divs
+    const nameDiv = document.createElement('div');
+    nameDiv.classList.add('order-name');
+    nameDiv.textContent = pizza.name;
+  
+    const priceDiv = document.createElement('div');
+    priceDiv.classList.add('order-price');
+    priceDiv.textContent = '$' + pizza.price.toFixed(2);
+  
+    // Create the plus and minus buttons
+    const plusButton = document.createElement('button');
+    plusButton.classList.add('plus-button');
+    plusButton.textContent = '+';
+    plusButton.addEventListener('click', () => {
+      pizza.quantity++;
+      quantityDiv.textContent = pizza.quantity;
+      priceDiv.textContent = '$' + (pizza.price * pizza.quantity).toFixed(2);
+    });
+  
+    const minusButton = document.createElement('button');
+    minusButton.classList.add('minus-button');
+    minusButton.textContent = '-';
+    minusButton.addEventListener('click', () => {
+      if (pizza.quantity > 1) {
+        pizza.quantity--;
+        quantityDiv.textContent = pizza.quantity;
+        priceDiv.textContent = '$' + (pizza.price * pizza.quantity).toFixed(2);
+      }
+    });
+  
+    // Create the quantity div
+    const quantityDiv = document.createElement('div');
+    quantityDiv.classList.add('order-quantity');
+    quantityDiv.textContent = pizza.quantity;
+  
+    // Add the name, price, quantity, plus, and minus elements to the order div
+    orderDiv.appendChild(nameDiv);
+    orderDiv.appendChild(priceDiv);
+    orderDiv.appendChild(quantityDiv);
+    orderDiv.appendChild(plusButton);
+    orderDiv.appendChild(minusButton);
+    thirdDiv.appendChild(orderDiv)
+    // Return the order div
+    return orderDiv;
+
+}
+ createOrderDiv(pizza)
+}
 
 
 

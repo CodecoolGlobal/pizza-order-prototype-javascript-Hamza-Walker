@@ -85,10 +85,13 @@
   }
   
   .description__pizza-desc .description__price {
-    color: #cc0000;
+    color:hsl(122, 100%, 40%);
     font-weight: bold;
   }
-  
+  .pizza-button {
+    background-color: #2f2f2f;
+    border-radius: 8%;
+  }
   /* Styles for the ingredients div */
   .description__ingredients {
     margin: 20px 0;
@@ -170,4 +173,5 @@
   transform: scale(1.05);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
+
   

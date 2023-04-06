@@ -1,6 +1,7 @@
 import { createFirstDivElements , createSecondDivElements, advertisementDiv,createAllergensFilter } from "./helpScript.js";
 import { fetchJsonObjects } from "./fetchJson.js";
 export const rootDiv = document.getElementById("root");
+export const firstDiv = document.createElement("div");
 export const secondDiv = document.createElement("div");
 export const thirdDiv = document.createElement("div");
 
@@ -8,7 +9,7 @@ export const thirdDiv = document.createElement("div");
 
 
 const createFirstDiv = ({ pizzaData, allergensData}) => {
-    const firstDiv = document.createElement("div");
+    
     firstDiv.classList.add("pizza-menu")
     // firstDiv.textContent = "put the pizza menu on me"
 
