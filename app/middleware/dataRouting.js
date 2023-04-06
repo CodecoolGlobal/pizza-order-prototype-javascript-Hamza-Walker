@@ -1,6 +1,8 @@
 import { Router } from "express"
 import { all, get, create, update, remove } from "../database.js"
 
+// TODO: don't rely on pre-existing .json files. check if they exist already and create them if not.
+
 export default function dataBaseRouter(
 	dataKey,
 	{ validation, transformOnSend } = { validation: null, transformOnSend: null }
@@ -8,7 +10,7 @@ export default function dataBaseRouter(
 	const path = `/${dataKey}`
 	const pathWithParams = `/${dataKey}/:id`
 
-	transformOnSend ??= (item) => item
+	transformOnSend ??= item => item
 	validation = {
 		...{
 			post: (req, res, next) => {
