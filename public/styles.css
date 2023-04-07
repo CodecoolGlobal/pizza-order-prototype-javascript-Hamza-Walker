@@ -7,6 +7,7 @@ body {
   background-image: url("./bilder/pizzaback.png");
   background-repeat: no-repeat;
   background-size: cover;
+ 
 }
 #root {
   display: flex;
@@ -15,6 +16,7 @@ body {
   flex-wrap: wrap;
   gap: 30px;
   width: 100%;
+  height: 100dvh;
   padding: 20px;
 }
 
@@ -150,26 +152,12 @@ body {
   box-shadow: inset;
 }
 
-.description__img img {
-  position: relative;
-  left: -20%;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-
-
 button {
   background-color: orange;
   color: white;
   padding: 8px 16px;
   border: none;
   cursor: pointer;
-}
-
-img {
-  width: 170px;
 }
 
 .hover-effect {
@@ -328,6 +316,8 @@ img {
   width: 653px;
   top: -52px;
   position: relative;
+  height: 25em;
+object-fit: cover;
 }
 .checkout-price {
     color: hsl(122, 100%, 40%);
