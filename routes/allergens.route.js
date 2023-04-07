@@ -1,4 +1,3 @@
-import { get } from "../app/database.js"
 import dataBaseRouter from "../app/middleware/dataRouting.js"
 import { isValidUuid } from "../app/middleware/validators.js"
 
