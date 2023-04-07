@@ -8,7 +8,7 @@ export const thirdDiv = document.createElement("div");
 
 
 
-const createFirstDiv = ({ pizzaData, allergensData}) => {
+const createMenueDiv = ({ pizzaData, allergensData}) => {
     
     firstDiv.classList.add("pizza-menu")
     const pizzaDivs = createFirstDivElements(pizzaData , allergensData);
@@ -18,7 +18,7 @@ const createFirstDiv = ({ pizzaData, allergensData}) => {
     
     rootDiv.appendChild(firstDiv);
 }
-const createSecondDiv = ({ pizzaData }) => {
+const createDescriptionDiv = ({ pizzaData }) => {
     
     secondDiv.classList.add("second-container")    
     const descriptionDivs = createSecondDivElements(pizzaData);
@@ -26,7 +26,7 @@ const createSecondDiv = ({ pizzaData }) => {
 
     rootDiv.appendChild(secondDiv)
 }
-const createThirdDiv = ({pizzaData, allergensData}) => {
+const createCheckOutDiv = ({pizzaData, allergensData}) => {
 
    
     createAllergensFilter(pizzaData,allergensData)
@@ -41,9 +41,9 @@ async function main () {
    
     const data = await fetchJsonObjects()
 
-    createFirstDiv(data);
-    createSecondDiv(data);
-    createThirdDiv (data);
+    createMenueDiv(data);
+    createDescriptionDiv(data);
+    createCheckOutDiv (data);
 }
 
 
