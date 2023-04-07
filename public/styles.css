@@ -170,7 +170,7 @@ img {
 }
 
 .hover-effect {
-	box-shadow: 0 2px 16px rgba(0, 175, 0, 0.683);
+	box-shadow: 0 9px 16px rgba(115, 239, 27, 0.683);
 	transform: scale(1.05);
 	transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
@@ -207,9 +207,7 @@ img {
 .minus-button {
 	font-size: 1.2rem;
 	font-weight: bold;
-	/* color: #000; */
-	/* background-color: #fff; */
-	/* border: 1px solid #ddd; */
+
 	border-radius: 50%;
 	width: 2rem;
 	height: 2rem;
