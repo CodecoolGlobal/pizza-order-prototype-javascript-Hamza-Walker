@@ -1,4 +1,4 @@
-import { secondDiv, thirdDiv } from "./script.js"
+import { mainDescriptionDiv, mainFilterDiv } from "./script.js"
 export let selectedElement = null
 export let orders = []
 const totalPriceDisplay = document.createElement("div")
@@ -111,7 +111,7 @@ export const createSecondDivElements = pizzaObject => {
 	descriptionDiv.appendChild(pizzaDescDiv)
 	descriptionDiv.appendChild(ingredientsDiv)
 
-	secondDiv.appendChild(descriptionDiv) // is appended twice the first time with pizaData[0]  then with selectedDiv
+	mainDescriptionDiv.appendChild(descriptionDiv) // is appended twice the first time with pizaData[0]  then with selectedDiv
 	return descriptionDiv
 }
 export const createthirdDivElements = pizza => {
@@ -184,7 +184,7 @@ export const createthirdDivElements = pizza => {
 		orderDiv.appendChild(quantityDiv)
 		orderDiv.appendChild(plusButton)
 		orderDiv.appendChild(minusButton)
-		thirdDiv.appendChild(orderDiv)
+		mainFilterDiv.appendChild(orderDiv)
 	}
 	// check if a pizza order dev is already created
 	if (!orders.find(order => order.name === pizza.name)) {
@@ -248,7 +248,7 @@ export const createAllergensFilter = (pizzaData, allergensData) => {
 	})
 
 	// Add the main div to the page and return it
-	thirdDiv.appendChild(mainDiv)
+	mainFilterDiv.appendChild(mainDiv)
 	return mainDiv
 }
 export const createCheckoutDivs = orders => {
@@ -264,10 +264,10 @@ export const createCheckoutDivs = orders => {
 	checkOutButton.classList.add("checkout-button")
 	checkOutButton.textContent = "CheckOut"
 
-	checkOutDiv.appendChild(totalPriceDisplay)
+	checkOutButton.appendChild(totalPriceDisplay)
 	checkOutDiv.appendChild(checkOutButton)
 
-	thirdDiv.appendChild(checkOutDiv)
+	mainFilterDiv.appendChild(checkOutDiv)
 }
 function createPopUpForm() {
 	const containerBody = document.createElement("div")

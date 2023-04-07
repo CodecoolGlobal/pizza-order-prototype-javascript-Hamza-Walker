@@ -158,6 +158,8 @@ button {
   padding: 8px 16px;
   border: none;
   cursor: pointer;
+  font-size: 1.2rem;
+font-weight: bold;
 }
 
 .hover-effect {
@@ -198,7 +200,6 @@ button {
 .minus-button {
   font-size: 1.2rem;
   font-weight: bold;
-  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 50%;
   width: 2rem;
@@ -324,4 +325,10 @@ object-fit: cover;
     font-weight: bold;
     align-items: center;
  
+}
+.checkout-div {
+  display: grid;
+}
+.checkout-button {
+  justify-content: space-evenly;
 }

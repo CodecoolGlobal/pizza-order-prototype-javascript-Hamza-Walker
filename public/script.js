@@ -1,37 +1,37 @@
 import { createFirstDivElements,createSecondDivElements,createAllergensFilter,orders,createCheckoutDivs } from "./helpScript.js";
 import { fetchJsonObjects } from "./fetchJson.js";
 export const rootDiv = document.getElementById("root");
-export const firstDiv = document.createElement("div");
-export const secondDiv = document.createElement("div");
-export const thirdDiv = document.createElement("div");
+export const menueDiv = document.createElement("div");
+export const mainDescriptionDiv = document.createElement("div");
+export const mainFilterDiv = document.createElement("div");
 
 
 
 
 const createMenueDiv = ({ pizzaData, allergensData}) => {
     
-    firstDiv.classList.add("pizza-menu")
+    menueDiv.classList.add("pizza-menu")
     const pizzaDivs = createFirstDivElements(pizzaData , allergensData);
     pizzaDivs.forEach(pizzaDiv => {
-        firstDiv.appendChild(pizzaDiv);
+        menueDiv.appendChild(pizzaDiv);
     });
     
-    rootDiv.appendChild(firstDiv);
+    rootDiv.appendChild(menueDiv);
 }
 const createDescriptionDiv = ({ pizzaData }) => {
     
-    secondDiv.classList.add("second-container")    
+    mainDescriptionDiv.classList.add("second-container")    
     const descriptionDivs = createSecondDivElements(pizzaData);
-    secondDiv.appendChild(descriptionDivs)
+    mainDescriptionDiv.appendChild(descriptionDivs)
 
-    rootDiv.appendChild(secondDiv)
+    rootDiv.appendChild(mainDescriptionDiv)
 }
 const createCheckOutDiv = ({pizzaData, allergensData}) => {
 
    
     createAllergensFilter(pizzaData,allergensData)
 
-    rootDiv.appendChild(thirdDiv)
+    rootDiv.appendChild(mainFilterDiv)
     createCheckoutDivs(orders)
 
 }
