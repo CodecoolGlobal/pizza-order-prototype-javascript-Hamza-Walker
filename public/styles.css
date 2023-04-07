@@ -8,13 +8,16 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 #root {
   display: flex;
-  justify-content: space-around;
-  width: 80%;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
   padding: 20px;
 }
+
 
 /* Styles for the firstDiv (menu)   */
 .pizza-menu {
@@ -138,24 +141,23 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Styles for the image div */
 .description__img {
-  width: 100%;
-  height: 200px;
+  position: relative;
+  width: 130%;
+  height: 312px;
   overflow: hidden;
   border-radius: 8px;
-  border: 2px solid #FFA500; /* add a border with an orange color */
   box-shadow: inset;
 }
 
-
-
 .description__img img {
+  position: relative;
+  left: -20%;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  box-shadow: 0 2px 4px rgba(202, 1, 1, 1); /* add a box-shadow */
+  object-fit: contain;
 }
+
 
 
 button {
@@ -238,7 +240,7 @@ img {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   padding: 20px;
   border-radius: 10px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Pacifico', cursive;
 }
 
 .filter-div :first-child h2 {
