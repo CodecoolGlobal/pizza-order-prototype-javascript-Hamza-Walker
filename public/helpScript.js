@@ -62,7 +62,7 @@ export const createSecondDivElements = pizzaObject => {
 	img.setAttribute("src", selectedElementPizza.url)
 	img.setAttribute("alt", selectedElementPizza.name)
 
-	imgDiv.appendChild(img)
+	// imgDiv.appendChild(img)
 
 	const pizzaDescDiv = document.createElement("div")
 	pizzaDescDiv.classList.add("description__pizza-desc")
@@ -107,7 +107,7 @@ export const createSecondDivElements = pizzaObject => {
 	ingredientsDiv.appendChild(ingredientsTitle)
 	ingredientsDiv.appendChild(ingredientsList)
 
-	descriptionDiv.appendChild(imgDiv)
+	descriptionDiv.appendChild(img)
 	descriptionDiv.appendChild(pizzaDescDiv)
 	descriptionDiv.appendChild(ingredientsDiv)
 
